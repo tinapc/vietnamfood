@@ -1,0 +1,62 @@
+.fix-nav-tool{
+	position: fixed;
+	right: 52px;
+	top: 92px;
+	z-index: 999;
+	background: #f2f2f2;
+	padding: 5px 10px;
+	border: 1px solid #ccc;
+}
+
+.page-head{
+	padding: 0px;
+	border-bottom: 0px;
+}
+
+.cl-vnavigation li a{
+	font-size: 13px;
+}
+
+.block-flat .header h3{
+	font-family: "Open Sans", Helvetica, sans-serif;
+	font-weight: 400;
+}
+
+
+/** DataTable **/
+table thead th{
+	font-weight: 600;
+}
+table tbody td{
+	font-size: 13px;
+}
+
+/* FORM */
+.form-control{font-size: 13px; font-weight: 400;}
+.form-horizontal.group-border-dashed .form-group{
+	padding: 5px 0px;
+}
+
+.my-checkbox label{
+	padding-left: 0px !important;
+}
+
+select.form-control, textarea.form-control{
+	min-height: 100px;
+}
+
+
+/** TAB **/
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+	font-weight: 700;
+}
+
+.nav-tabs > li > a{
+	font-weight: 400;
+	font-size: 15px;
+}
+
+/* ToolTip */
+.tooltip-inner{
+	max-width: 400px;
+}

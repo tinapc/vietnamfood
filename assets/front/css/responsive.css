@@ -1,0 +1,42 @@
+@media only screen and (max-width: 991px) {
+    a.logo {
+        display: inline-block
+    }
+
+    .main-nav .nav > li > a {
+        padding: 10px 5px !important;
+        font-size: 11px;
+    }
+    .main-nav .dropdown-menu{
+        top:30px
+    }
+}
+
+@media only screen and (max-width: 450px)
+{
+    .main-nav .nav > li > a {
+        padding: 10px 5px !important;
+        font-size: 12px;
+    }
+    .main-nav .dropdown-menu{
+        top:30px
+    }
+
+    .main-nav .nav>li{
+        float:left;
+        display:inline-block;
+        width:100%;
+    }
+    .slider-feature, #partner{display: none !important;}
+    .carousel-fade .carousel-inner.subpage .item img{min-height: 150px !important;}
+
+    .main .title-big{font-size: 18px;}
+    .footer .col-xs-12{text-align: center; padding: 15px 0}
+
+    .comp_info{text-align: center}
+    input.input-search{max-width: 96%;}
+
+    .content-detail img{height: auto !important;}
+
+
+}

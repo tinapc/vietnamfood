@@ -1,0 +1,129 @@
+/**
+
+"Corporate Blue"" skin for jQuery newsticker
+ 
+Design & code by Studio 164a
+
+**/ 
+ 
+ 
+.newsticker_wrapper {
+    font: 14px/32px Arial, Helvetica, sans-serif;
+    color: #000;  
+    height: 40px;
+  
+    border-bottom: 1px solid #ccc;   
+    /*border-right-color: #b7b8ba;
+    border-left-color: #c9cacc;*/
+    -webkit-text-size-adjust: none;
+} 
+
+.newsticker_wrapper .newsticker_title {    
+    float: left;
+    background: transparent url('/list_bg.png') no-repeat top right;
+    padding-right: 7px;
+    margin-right: 15px;
+}
+
+.newsticker_wrapper h4 {
+    color: #fff;
+    height: 100%;
+    overflow: hidden;    
+    margin: 0;
+    padding: 0 6px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #4374ab;    
+}
+
+.newsticker {        
+    margin: 0;
+    padding: 0;    
+}
+
+.newsticker li {
+    padding: 0 15px;
+} 
+
+.newsticker a {
+    color: #0E4B8F;
+    font-weight: bold;
+}
+
+.newsticker a:hover{
+    color: #ff0000
+}
+
+.newsticker_controls {
+    position: absolute;
+    right: 9px;
+    top: 0;
+    list-style-type: none;
+    list-style-image: none;    
+    background-color: transparent;
+    z-index: 30;
+    margin: 0 0 0 10px;
+}
+
+.newsticker_controls li {
+    float: left;    
+    height: 30px;
+    width: 23px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.newsticker_controls .pause {
+    background-image: url('/pause.png');       
+}
+
+.newsticker_controls .resume {
+    background-image: url('/resume.png');       
+}
+
+.newsticker_controls .previous {
+    background-image: url('previous.png');   
+}
+
+.newsticker_controls .next {
+    background-image: url('next.png');   
+}
+
+/* Reveal */
+.newsticker_style_reveal .newsticker li {
+    left: 15px !important;
+}
+
+/* Scroll */
+.newsticker_style_scroll .newsticker_title {
+    margin-right: 10px;
+}
+
+.newsticker_style_scroll .newsticker {
+    background: none;
+}
+
+.newsticker_style_scroll .newsticker li {
+    margin-right: 80px;
+    padding: 0;
+}
+
+.newsticker_title{width:200px;}
+
+/*
+THE MARKUP:
+
+<div class="newsticker_wrapper">
+        <div class="newsticker_title">
+          <h4>The Latest</h4>
+        </div>
+	<ul class="newsticker">
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</li>
+	</ul>
+</div>
+*/
