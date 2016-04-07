@@ -426,7 +426,7 @@ class DataMapper implements IteratorAggregate {
 			{
 				$lang_file = str_replace(array('${model}', '${table}'), array($this->model, $this->table), $this->lang_file_format);
 				$deft_lang = $this->config->item('language');
-				$idiom = ($deft_lang == '') ? 'english' : $deft_lang;
+				$idiom = ($deft_lang == '') ? 'en' : $deft_lang;
 				if(file_exists(APPPATH.'language/'.$idiom.'/'.$lang_file.'_lang'.EXT))
 				{
 					$this->lang->load($lang_file, $idiom);

@@ -1,80 +1,164 @@
-<?php
-	$this->db->select('alias,image');
-	$this->db->where(array('published' => 1, 'content_type' => 'cate_service'));
-	$this->db->order_by('id','desc');
-	$this->db->limit(1);
-	$oneService = $this->db->get('resource')->row();
-
-	$this->db->select('alias,image');
-	$this->db->where(array('published' => 1, 'content_type' => 'news_item'));
-	$this->db->order_by('id','desc');
-	$this->db->limit(1);
-	$oneNew = $this->db->get('resource')->row();
-
-	$this->db->select('alias,image');
-	$this->db->where(array('published' => 1, 'content_type' => 'product_item', 'parent' => 79));
-	$this->db->order_by('id','desc');
-	$this->db->limit(1);
-	$onePro = $this->db->get('resource')->row();
-?>
-
-
-<div class="col-xs-12">
-	<div class="box3-homepage">
+<div class="product-block">
+	<div class="container">
 		<div class="row">
-			<div class="col-sm-4 text-center">
-				<a href="<?=site_url('dich-vu/'.$oneService->alias)?>">
-					<img src="<?php echo cover_image_path($oneService->image)?>" class="img-responsive" alt="">
-					<span>SẢN PHẨM & DỊCH VỤ</span>
-				</a>
-
+			<div class="col-sm-6 col-md-6 col-lg-6">
+				<div class="product-big-photo">
+					<a href="">
+						<img src="<?=base_url()?>assets/front/images/demo-photo/sp1-big.jpg" class="img-responsive" alt=""/>
+					</a>
+					<span>Nhóm sản phẩm 1</span>
+				</div>
 			</div>
-			<div class="col-sm-4 text-center">
-				<a href="<?=site_url('tin-tuc/'.$oneNew->alias)?>">
-					<img src="<?php echo cover_image_path($oneNew->image)?>" class="img-responsive" alt="">
-					<span>TIN TỨC & SỰ KIỆN</span>
-				</a>
+			<div class="col-sm-6 col-md-6 col-lg-6">
+				<div class="cate-product">
+					<div class="cate-intro">
+						<h2 class="title-s-18"><a href="">Giới thiệu nhóm sản phẩm 1</a></h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut laboreaborum...</p>	
+					</div>
 
-			</div>
-			<div class="col-sm-4 text-center">
-				<iframe width="100%" height="245" src="//www.youtube.com/embed/<?=$this->load->get_var('video_td')?>" frameborder="0" allowfullscreen></iframe>
-				<a href="<?=site_url('san-pham/'.$onePro->alias)?>">
-					<span>VIDEO MEDIA</span>
-				</a>
+					<div class="row">
+						<div class="col-sm-4 col-md-4 col-lg-4">
+							<div class="pro-item text-center">
+								<a href="">
+									<img src="<?=base_url()?>assets/front/images/demo-photo/sp1.jpg" class="img-responsive" alt=""/>
+								</a>
+								<div class="pro-info">
+									<h3> <a href="">Sản phẩm loại 1</a></h3>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4 col-md-4 col-lg-4">
+							<div class="pro-item text-center">
+								<a href="">
+									<img src="<?=base_url()?>assets/front/images/demo-photo/sp2.jpg" class="img-responsive" alt=""/>
+								</a>
+								<div class="pro-info">
+									<h3>Sản phẩm loại 2</h3>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4 col-md-4 col-lg-4">
+							<div class="pro-item text-center">
+								<a href="">
+									<img src="<?=base_url()?>assets/front/images/demo-photo/sp3.jpg" class="img-responsive" alt=""/>
+								</a>
+								<div class="pro-info">
+									<h3>Sản phẩm loại 3</h3>
+								</div>
+							</div>
+						</div>
+					</div>
 
+					<div class="clearfix"></div>
+					<div class="text-right">
+    					<a href="" class="view-all-product">
+    						<i class="fa fa-long-arrow-right"></i> <?=$this->lang->line('txt_view_more')?>
+    					</a>
+					</div>
+				</div>	
 			</div>
 		</div>
 	</div>
+</div>
+<div class="product-block">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 col-md-6 col-lg-6">
+				<div class="product-big-photo">
+					<a href="">
+						<img src="<?=base_url()?>assets/front/images/demo-photo/sp1-big.jpg" class="img-responsive" alt=""/>
+					</a>
+					<span>Nhóm sản phẩm 1</span>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-6 col-lg-6">
+				<div class="cate-product">
+					<div class="cate-intro">
+						<h2 class="title-s-18"><a href="">Giới thiệu nhóm sản phẩm 1</a></h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut laboreaborum...</p>	
+					</div>
 
-	<div class="row">
-		<div class="col-xs-12">
-			<h3 class="title-big">
-				<img src="<?=base_url()?>assets/front/images/category_icon.png" alt="">
-				DỊCH VỤ CỦA CHÚNG TÔI
-			</h3>
-			<div class="clearfix"></div>
-			<div class="row">
-				<?php foreach($this->load->get_var('data_nav_cate_service') as $row) : ?>
-				<div class="col-sm-4">
-					<div class="item-field">
-						<a href="<?=site_url('dich-vu/'.$row->alias)?>">
-							<?php if($row->image !== '') : ?>
-							<img src="<?php echo cover_image_path($row->image)?>" alt="<?=$row->title?>" class="img-responsive"/>
-							<?php else : ?>
-							<img src="http://dummyimage.com/45x46/4d494d/686a82.gif&text=No Image" alt="placeholder+image" class="img-responsive">
-							<?php endif ?>
-							<div class="clearfix"></div>
-							<p><?=$row->title?></p>
-							<p class="intro">
-								<?=word_limiter($row->intro, 15)?>
-							</p>
-						</a>
+					<div class="row">
+						<div class="col-sm-4 col-md-4 col-lg-4">
+							<div class="pro-item text-center">
+								<a href="">
+									<img src="<?=base_url()?>assets/front/images/demo-photo/sp1.jpg" class="img-responsive" alt=""/>
+								</a>
+								<div class="pro-info">
+									<h3> <a href="">Sản phẩm loại 1</a></h3>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4 col-md-4 col-lg-4">
+							<div class="pro-item text-center">
+								<a href="">
+									<img src="<?=base_url()?>assets/front/images/demo-photo/sp2.jpg" class="img-responsive" alt=""/>
+								</a>
+								<div class="pro-info">
+									<h3>Sản phẩm loại 2</h3>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4 col-md-4 col-lg-4">
+							<div class="pro-item text-center">
+								<a href="">
+									<img src="<?=base_url()?>assets/front/images/demo-photo/sp3.jpg" class="img-responsive" alt=""/>
+								</a>
+								<div class="pro-info">
+									<h3>Sản phẩm loại 3</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="clearfix"></div>
+					<div class="text-right">
+    					<a href="" class="view-all-product">
+    						<i class="fa fa-long-arrow-right"></i> <?=$this->lang->line('txt_view_more')?>
+    					</a>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="footer-home">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4 col-md-4 col-lg-4">
+				<div class="block">
+					<h3 class="title-s-18"><a href="">giới thiệu tổng quan</a></h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt.</p>
+				</div>
+			</div>
+			<div class="col-sm-4 col-md-4 col-lg-4">
+				<div class="block">
+					<h3 class="title-s-18"><a href="">Khuyến mãi tháng 4</a></h3>
+					<p>
+						<img src="<?=base_url()?>assets/front/images/pic-promotion.jpg" class="img-responsive" alt=""/>
+					</p>
+				</div>
+			</div>
+			<div class="col-sm-4 col-md-4 col-lg-4">
+				<div class="block support">
+					<h3 class="title-s-18"><a href="">hổ trợ trực tuyến</a></h3>
+					<div class="c">
+						<div class="nickchat text-right">
+							<a href=""><img src="<?=base_url()?>assets/front/images/icons/skype2.png"></a>
+							<a href=""><img src="<?=base_url()?>assets/front/images/icons/callphone.png"></a>
+						</div>
+						<p class="hotline">Hotline: 0122 67 69 373</p>
 					</div>
 				</div>
-				<?php endforeach ?>
 			</div>
 		</div>
-		
 	</div>
-
-</div><!--End Left Col-->
+</div>
