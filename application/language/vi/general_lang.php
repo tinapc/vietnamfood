@@ -9,6 +9,8 @@ $lang['txt_total'] = 'Tổng số lượt';
 // Product
 $lang['txt_product']	= 'Sản phẩm';
 $lang['txt_view_more'] = 'Xem thêm';
+$lang['txt_product_related'] = 'Sản phẩm liên quan';
+$lang['txt_addcart'] = 'Mua hàng';
 
 // Sidebar
 $lang['txt_support_online'] = 'Hổ trợ trực tuyến';

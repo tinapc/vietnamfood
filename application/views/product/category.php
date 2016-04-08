@@ -7,7 +7,7 @@
 						<div class="item-product">
 							<div class="save-money">-27%</div>
 							<a href="">
-								<img src="<?=base_url()?>assets/front/images/demo-photo/sp1-big.jpg" class="img-responsive" alt=""/>
+								<img src="<?=base_url()?>assets/front/images/demo-photo/san-pham-chi-tiet.jpg" class="img-responsive" alt=""/>
 							</a>
 							<div class="clearfix"></div>
 							<div class="price">
@@ -27,7 +27,7 @@
 						<div class="item-product">
 							<div class="save-money">-27%</div>
 							<a href="">
-								<img src="<?=base_url()?>assets/front/images/demo-photo/sp1-big.jpg" class="img-responsive" alt=""/>
+								<img src="<?=base_url()?>assets/front/images/demo-photo/san-pham-chi-tiet.jpg" class="img-responsive" alt=""/>
 							</a>
 							<div class="clearfix"></div>
 							<div class="price">
@@ -47,7 +47,7 @@
 						<div class="item-product">
 							<div class="save-money">-27%</div>
 							<a href="">
-								<img src="<?=base_url()?>assets/front/images/demo-photo/sp1-big.jpg" class="img-responsive" alt=""/>
+								<img src="<?=base_url()?>assets/front/images/demo-photo/san-pham-chi-tiet.jpg" class="img-responsive" alt=""/>
 							</a>
 							<div class="clearfix"></div>
 							<div class="price">

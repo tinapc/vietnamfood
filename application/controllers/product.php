@@ -16,4 +16,10 @@ class Product extends Front_Controller
 		$data = array();
 		$this->template->build('product/category', $data);
 	}
+
+	public function view($id = null, $slug=null)
+	{
+		$data = array();
+		$this->template->build('product/view', $data);	
+	}
 }

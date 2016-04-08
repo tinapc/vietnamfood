@@ -10,6 +10,8 @@ $lang['txt_total'] = 'Total';
 // Product
 $lang['txt_product']	= 'Product';
 $lang['txt_view_more'] = 'View more';
+$lang['txt_product_related'] = 'Related product';
+$lang['txt_addcart'] = 'Add Cart';
 
 // Sidebar
 $lang['txt_support_online'] = 'Support online';
