@@ -15,7 +15,6 @@ class Welcome extends Front_Controller {
 		$fields = array(
 			'id', 'title', 'menu_title', 'alias', 'content_type', 'link_attr', 'external_link', 'icon'
 		);
-		//$data['data_nav_cate_service'] = $this->resource->get_where(array('content_type =' => 'cate_service', 'published' => 1 ), $fields);
 
 		// Introducton
 		$data['introduc'] = $this->resource->get_by(array('content_type' => 'introduction', 'is_default' => 1, 'published' => 1), array('title', 'intro', 'alias'));
@@ -29,6 +28,13 @@ class Welcome extends Front_Controller {
 		
 		$this->load->vars(array('title' => $this->load->get_var('site_name')));
 		$this->template->build('welcome_index', $data);
+	}
+
+	public function changeLang()
+	{
+		$l = $this->input->get('l');
+		$this->session->set_userdata('site_lang', $l);
+		echo json_encode(array('status' => true));
 	}
 }
 

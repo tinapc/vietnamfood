@@ -273,35 +273,6 @@ class Util {
 
 	}
 
-	// $time = $timestamp;
-
-	// $t = time_stamp("$time");
-	// if(strpos($t,'1 seconds ago')) {
-	// 	// Show 'a second ago' instead of 1 seconds ago because we need proper English.
-	// 	echo "a second ago";
-	// } elseif(strpos($t,'seconds ago')) {
-	// 	// Show * seconds ago. This means exclude '1 seconds ago' and 'a second ago' so that it can show other seconds.
-	// 	// Examples: 7 seconds ago, 0 seconds ago, 2 seconds ago, 10 seconds ago, 47 seconds ago.
-	// 	echo time_stamp("$time");
-	// } elseif(strpos($t,'one minute ago')) {
-	// 	// Show 'a minute ago' instead of 'one minute ago' so that it follows the 'a' concept.
-	// 	echo "a minute ago";
-	// } elseif(strpos($t,'minutes ago')) {
-	// 	// Show * minutes ago. This means exclude 'one minute ago' and 'a minute ago' so that it can show other minutes.
-	// 	// Examples: 2 minutes ago, 30 minutes ago, 50 minutes ago, 7 minutes ago, 10 minutes ago.
-	// 	echo time_stamp("$time");
-	// } elseif(strpos($t,'hour ago')) {
-	// 	// Show 'an hour ago' instead of 'one hour ago'.
-	// 	echo "an hour ago";
-	// } elseif(strpos($t,'hours ago')) {
-	// 	// Show * hours ago. This means exclude 'one hour ago' and 'an hour ago' so that it can show other hours.
-	// 	// Examples: 12 hours ago, 23 hours ago, 9 hours ago, 2 hours ago, 10 hours ago.
-	// 	echo time_stamp("$time");
-	// } else {
-	// 	// The time has passed 24 hours. We shall display the full time and date.
-	// 	// Example: Thursday, November 6th, 2014 at 12:26 AM
-	// 	echo date('l, F jS, Y', $timestamp) . " at " .  date('g:i A', $timestamp);
-	// }
 }
 
 /* End of file util.php */

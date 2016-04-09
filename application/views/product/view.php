@@ -39,7 +39,7 @@
 								</div>
 
 								<p class="text-center">
-									<a href="" class="btn btn-success"><i class="fa fa-shopping-bag"></i> <?=$this->lang->line('txt_addcart')?></a>
+									<a href="javascript:void(0)" data-toggle="modal" data-target="#modal-order" class="btn btn-success"><i class="fa fa-shopping-bag"></i> <?=$this->lang->line('txt_addcart')?></a>
 								</p>
 							</div>	
 						</div>
@@ -244,4 +244,50 @@
 
 		</div>
 	</div>
+</div>
+
+<!--Modal order -->
+<div class="modal fade" id="modal-order" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    	<div class="modal-header">
+	        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        	<h4 class="modal-title" id="myModalLabel"><?=$this->lang->line('txt_order')?></h4>
+	      	</div>
+		    <div class="modal-body">
+		        <div class="row">
+		        	<div class="col-md-12">
+		        		<div class="form-order">
+		        			<h2 class="title-s-30 text-center">
+		        				<?=$this->lang->line('txt_order_form_title')?>
+		        				<span>(<?=$this->lang->line('txt_order_form_subtitle')?>)</span>
+		        			</h2>
+		        			<div class="form-group">
+		        				<input class="form-control" type="text" name="order_product_name" id="order_product_name" placeholder="" />
+		        			</div>
+		        			<div class="form-group">
+		        				<input class="form-control" type="text" name="order_fullname" id="order_fullname" placeholder="<?=$this->lang->line('txt_fullname')?>" />
+		        			</div>
+		        			<div class="form-group">
+		        				<input class="form-control" type="text" name="order_address" id="order_address" placeholder="<?=$this->lang->line('txt_address')?>" />
+		        			</div>
+		        			<div class="form-group">
+		        				<input class="form-control" type="text" name="order_phone" id="order_phone" placeholder="<?=$this->lang->line('txt_phone')?>" />
+		        			</div>
+		        			<div class="form-group">
+		        				<input class="form-control" type="text" name="order_email" id="order_email" placeholder="Email" />
+		        			</div>
+		        			<div class="form-group">
+		        				<textarea class="form-control" name="order_message" id="order_message" placeholder="<?=$this->lang->line('txt_message')?>"></textarea>
+		        			</div>
+		        		</div>
+		        	</div>
+		        </div>
+		    </div>
+		    <div class="modal-footer">
+		    	<button type="button" class="btn btn-default" data-dismiss="modal"><?=$this->lang->line('txt_close')?></button>
+		        <button type="button" class="btn btn-primary"><?=$this->lang->line('txt_send')?></button>
+		    </div>
+	    </div>	
+  	</div>
 </div>

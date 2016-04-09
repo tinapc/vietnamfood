@@ -6,7 +6,9 @@
 					<div class="block-flat">
 						<div class="header">							
 							<?=$template['partials']['breadcrum'];?>
+							<?php if ($this->input->get('contentType') !== 'introduction') : ?>
 							<a href="<?=$linkAdd?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tạo mới</a>
+							<?php endif ?>
 							<a href="<?=$return_url?>" class="btn btn-info btn-sm"><i class="fa fa-refresh"></i>  Refresh</a>
 							<a href="javascript:void(0)" onclick="$('#frm1').submit()" class="btn btn-info btn-sm"><i class="fa fa-save"></i>  Update</a>
 						</div>
@@ -59,8 +61,11 @@
 												<?php if($contentType =='cate_product') : ?>
 													<a href="<?=ADMIN_URL?>resource/product/<?=$resource->id?>" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Xem sản phẩm trong danh mục này"><i class="fa fa-folder"></i></a>
 												<?php endif?>
-												<a class="btn btn-primary btn-xs" href="<?=ADMIN_URL?>resource/edit/<?=$resource->id?>/?contentType=<?=$contentType?>" data-original-title="Edit" data-toggle="tooltip"><i class="fa fa-pencil"></i></a> 
+
+												<a class="btn btn-primary btn-xs" href="<?=ADMIN_URL?>resource/edit/<?=$resource->id?>/?contentType=<?=$contentType?>" data-original-title="Edit" data-toggle="tooltip"><i class="fa fa-pencil"></i></a>
+												<?php if ($this->input->get('contentType') !== 'introduction') : ?> 
 												<a class="btn btn-danger btn-xs" href="javascript:void(0)" onclick="admin.resource.delete('<?=base_url()?>manager/resource/delete/<?=$resource->id?>', '<?=$return_url?>')" data-original-title="Remove" data-toggle="tooltip"><i class="fa fa-times"></i></a>
+												<?php endif ?>
 											</td>
 										</tr>
 										<?php endforeach?>

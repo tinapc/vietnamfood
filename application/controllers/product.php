@@ -20,6 +20,8 @@ class Product extends Front_Controller
 	public function view($id = null, $slug=null)
 	{
 		$data = array();
+
+		$this->template->title('Xem san pham');
 		$this->template->build('product/view', $data);	
 	}
 }

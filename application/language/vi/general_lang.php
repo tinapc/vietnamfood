@@ -5,6 +5,8 @@ $lang['txt_social'] = 'Mạng xã hội';
 $lang['txt_visitor'] = 'Thống kê thuy cập';
 $lang['txt_online'] = 'Đang truy cập';
 $lang['txt_total'] = 'Tổng số lượt';
+$lang['txt_close'] = 'Đóng';
+$lang['txt_order'] = 'Đặt hàng';
 
 // Product
 $lang['txt_product']	= 'Sản phẩm';
@@ -15,3 +17,20 @@ $lang['txt_addcart'] = 'Mua hàng';
 // Sidebar
 $lang['txt_support_online'] = 'Hổ trợ trực tuyến';
 $lang['txt_viewed_product'] = 'Sản phẩm xem nhiều nhất';
+
+// Order form
+$lang['txt_order_form_title'] = 'Bạn vui lòng nhập thông tin';
+$lang['txt_order_form_subtitle'] = 'Chúng tôi sẽ liên hệ với bạn để giao hàng';
+$lang['txt_fullname'] = 'Họ và tên';
+$lang['txt_address'] = 'Địa chỉ liên lạc';
+$lang['txt_phone'] = 'Điện thoại';
+$lang['txt_message'] = 'Lời nhắn';
+$lang['txt_send'] = 'Gởi thông tin';
+
+// Main navigation
+$lang['nav_gt'] = 'Giới thiệu';
+$lang['nav_sp'] = 'Sản phẩm';
+$lang['nav_km'] = 'Khuyến mãi';
+$lang['nav_quality'] = 'Chất lượng';
+$lang['nav_distributary'] = 'Phân phối';
+$lang['nav_lh'] = 'Liên hệ';
