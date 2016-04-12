@@ -57,57 +57,8 @@
                                             <div class="tab-pane cont active" id="tb_document">
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label class="">Parent resource</label>
-                                                            <select class="select2" name="parent">
-                                                                <option value="0">Normal</option>
-                                                                <?php if (count($this->load->get_var('resoucesCateNews')) > 0 && $this->input->get('contentType') == 'news_item') : ?>
-                                                                    <?php foreach ($this->load->get_var('resoucesCateNews') as $row) : ?>
-                                                                        <?php if ($row->id == $resource->parent) {
-                                                                            echo '<option value="' . $row->id . '" selected="selected">' . $row->title . '</option>';
-                                                                        } else {
-                                                                            echo '<option value="' . $row->id . '">' . $row->title . '</option>';
-                                                                        } ?>
-                                                                    <?php endforeach ?>
-                                                                <?php endif ?>
-
-                                                                <?php if (count($this->load->get_var('resoucesCateServices')) > 0 && $this->input->get('contentType') == 'cate_product') : ?>
-                                                                    <?php foreach ($this->load->get_var('resoucesCateServices') as $row) : ?>
-                                                                        <?php if ($row->id == $resource->parent) {
-                                                                            echo '<option value="' . $row->id . '" selected="selected">' . $row->title . '</option>';
-                                                                        } else {
-                                                                            echo '<option value="' . $row->id . '">' . $row->title . '</option>';
-                                                                        } ?>
-                                                                    <?php endforeach ?>
-                                                                <?php endif ?>
-                                                                <?php if (count($this->load->get_var('resoucesCateProducts')) > 0 && $this->input->get('contentType') == 'product_item') : ?>
-                                                                    <?php foreach ($this->load->get_var('resoucesCateProducts') as $row) : ?>
-                                                                        <?php if ($row->id == $resource->parent) {
-                                                                            echo '<option value="' . $row->id . '" selected="selected">' . $row->title . '</option>';
-                                                                        } else {
-                                                                            echo '<option value="' . $row->id . '">' . $row->title . '</option>';
-                                                                        } ?>
-                                                                    <?php endforeach ?>
-                                                                <?php endif ?>
-                                                            </select>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="">Order</label>
-                                                            <input type="text" name="menu_index" value="<?= @$resource->menu_index ?>" class="form-control" required>
-                                                        </div>
                                                         <div class="checkbox my-checkbox">
-                                                            <label class="checkbox-inline">
-                                                                <input type="checkbox" name="hide_from_menu"
-                                                                       value="1" <?php if (@$resource->hide_from_menu == 1) echo "checked=checked"; ?>
-                                                                       class="icheck"> Hide from Menu </label>
-                                                            <label class="checkbox-inline">
-                                                                <input type="checkbox" name="is_default"
-                                                                       value="1" <?php if (@$resource->is_default == 1) echo "checked=checked"; ?>
-                                                                       class="icheck"> is Default </label>
-                                                            <label class="checkbox-inline">
-                                                                <input type="checkbox" name="show_home"
-                                                                       value="1" <?php if (@$resource->show_home == 1) echo "checked=checked"; ?>
-                                                                       class="icheck"> Show Home </label>
+                                                            
                                                             <label class="checkbox-inline">
                                                                 <?php if (isset($resource->published)) : ?>
                                                                 <?php if ($resource->published == 1) : ?>
@@ -118,34 +69,11 @@
                                                                                 <?php else : ?>
                                                               <input type="checkbox" name="published" checked="checked" value="1" class="icheck"> Published </label>
                                                             <?php endif ?>
-                                                            <label class="checkbox-inline" style="margin-left:0px" data-toggle="tooltip"
-                                                                   title="Chọn để thêm vào Banner Gallery">
-                                                                <input type="checkbox" name="show_gallery"
-                                                                       value="1" <?php if (@$resource->show_gallery == 1) echo "checked=checked"; ?>
-                                                                       class="icheck"> Show Gallery </label>
-                                                            <label class="checkbox-inline" data-toggle="tooltip" title="Chọn để thêm vào Slider">
-                                                                <input type="checkbox" name="is_hot"
-                                                                       value="1" <?php if (@$resource->is_hot == 1) echo "checked=checked"; ?> class="icheck">
-                                                                is Hot News
-                                                            </label>
-
 
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label class="">External resource</label>
-                                                            <input type="text" name="external_link" value="<?= @$resource->external_link ?>" class="form-control"
-                                                                   placeholder="http://google"
-                                                                   data-original-title="Nếu bạn muốn liên kết đến một webpage ngoài. Vui lòng nhập giá trị. <br>Ví dụ: http://google.com"
-                                                                   data-toggle="tooltip">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="">Link Attribute</label>
-                                                            <input type="text" name="link_attr" value="<?= @$resource->link_attr ?>" class="form-control"
-                                                                   data-original-title="Thuộc tính của liên kết <br>Ví dụ:target='_blank' style='border:1px solid #ccc'"
-                                                                   data-toggle="tooltip">
-                                                        </div>
+                                                        
                                                     </div>
                                                 </div>
                                                 <div class="row">

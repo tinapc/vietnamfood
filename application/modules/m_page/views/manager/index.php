@@ -6,9 +6,7 @@
 					<div class="block-flat">
 						<div class="header">							
 							<?=$template['partials']['breadcrum'];?>
-							<?php if ($this->input->get('contentType') !== 'introduction' && $this->input->get('contentType') !== 'job') : ?>
-							<a href="<?=$linkAdd?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tạo mới</a>
-							<?php endif ?>
+							<!-- <a href="<?=$linkAdd?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tạo mới</a> -->
 							<a href="<?=$return_url?>" class="btn btn-info btn-sm"><i class="fa fa-refresh"></i>  Refresh</a>
 							<a href="javascript:void(0)" onclick="$('#frm1').submit()" class="btn btn-info btn-sm"><i class="fa fa-save"></i>  Update</a>
 						</div>
@@ -20,7 +18,7 @@
 										<tr>
 											<th>ID</th>
 											<th>
-												<?php echo ($contentType == 'cate_product') ? 'Tên danh mục' : 'Title';?>
+												Tên trang
 											</th>
 											<th>Created</th>
 											<?php if($contentType =='cate_product') : ?>
@@ -52,20 +50,15 @@
 											</td>
 											<td>
 												<?php if($resource->published) : ?> 
-												<a href="javascript:void(0)" onclick="admin.resource.status('<?=base_url()?>manager/resource/changeStatus/<?=$resource->id?>', 0)"><i class="fa fa-check-square-o"></i></a>
+												<a href="javascript:void(0)" onclick="admin.resource.status('<?=base_url()?>m_page/changeStatus/<?=$resource->id?>', 0)"><i class="fa fa-check-square-o"></i></a>
 												<?php else : ?>
-												<a href="javascript:void(0)" onclick="admin.resource.status('<?=base_url()?>manager/resource/changeStatus/<?=$resource->id?>', 1)"><i class="fa fa-square-o"></i></a>
+												<a href="javascript:void(0)" onclick="admin.resource.status('<?=base_url()?>m_page/changeStatus/<?=$resource->id?>', 1)"><i class="fa fa-square-o"></i></a>
 												<?php endif ?>
 											</td>
 											<td class="center">
-												<?php if($contentType =='cate_product') : ?>
-													<a href="<?=ADMIN_URL?>resource/product/<?=$resource->id?>" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Xem sản phẩm trong danh mục này"><i class="fa fa-folder"></i></a>
-												<?php endif?>
 
-												<a class="btn btn-primary btn-xs" href="<?=ADMIN_URL?>resource/edit/<?=$resource->id?>/?contentType=<?=$contentType?>" data-original-title="Edit" data-toggle="tooltip"><i class="fa fa-pencil"></i></a>
-												<?php if ($this->input->get('contentType') !== 'introduction' && $this->input->get('contentType') !== 'job') : ?> 
-												<a class="btn btn-danger btn-xs" href="javascript:void(0)" onclick="admin.resource.delete('<?=base_url()?>manager/resource/delete/<?=$resource->id?>', '<?=$return_url?>')" data-original-title="Remove" data-toggle="tooltip"><i class="fa fa-times"></i></a>
-												<?php endif ?>
+												<a class="btn btn-primary btn-xs" href="<?=base_url()?>m_page/edit/<?=$resource->id?>/?contentType=<?=$contentType?>" data-original-title="Edit" data-toggle="tooltip"><i class="fa fa-pencil"></i></a>
+												<!-- <a class="btn btn-danger btn-xs" href="javascript:void(0)" onclick="admin.resource.delete('<?=base_url()?>m_page/delete/<?=$resource->id?>', '<?=$return_url?>')" data-original-title="Remove" data-toggle="tooltip"><i class="fa fa-times"></i></a> -->
 											</td>
 										</tr>
 										<?php endforeach?>

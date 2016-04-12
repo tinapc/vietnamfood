@@ -17,7 +17,9 @@ class Welcome extends Front_Controller {
 		);
 
 		// Introducton
-		$data['introduc'] = $this->resource->get_by(array('content_type' => 'introduction', 'is_default' => 1, 'published' => 1), array('title', 'intro', 'alias'));
+		$data['introduc'] = $this->resource->get_by(array('id' => 151), array('title', 'title_en', 'intro', 'intro_en', 'alias'));
+		// Promotion
+		$data['promotion'] = $this->resource->get_by(array('id' => 152), array('title', 'title_en', 'image'));
 
 		$seo = array(
 			'seo_keyword'	=> $this->load->get_var('seo_k_home'),
@@ -25,8 +27,15 @@ class Welcome extends Front_Controller {
 			'seo_image'	=>  base_url().'assets/front/images/logo.png'
 		);
 		$this->load->vars($seo);
+
+		// Get category product
+		$this->db->select(array('title', 'title_en', 'intro', 'intro_en', 'image', 'alias'));
+		$this->db->where(array('show_home' => 1, 'published' => 1, 'content_type' => 'cate_product'));
+		$this->db->order_by('id', 'desc');
+		$cates = $this->db->get('resource')->result();
 		
-		$this->load->vars(array('title' => $this->load->get_var('site_name')));
+		$this->template->title($this->load->get_var('site_name'));
+		$this->template->set(array('s_lang' => $this->s_lang, 'cates' => $cates));
 		$this->template->build('welcome_index', $data);
 	}
 

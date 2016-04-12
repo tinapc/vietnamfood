@@ -2,7 +2,7 @@
 
 class Front_Controller extends MX_Controller {
 
-	//public $s_lang = '';
+	public $s_lang = '';
 
 	public function __construct(){
 		parent::__construct();
@@ -67,7 +67,7 @@ class Front_Controller extends MX_Controller {
 		// Setting theme
 		$this->template->set_partial('header', 'partial/header');
 		$this->template->set_partial('footer', 'partial/footer');
-		$this->template->set_partial('right', 'partial/right');
+		//$this->template->set_partial('right', 'partial/right');
 	}
 
 }

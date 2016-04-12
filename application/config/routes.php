@@ -52,7 +52,11 @@ $route['manager'] = 'dashboard';
 
 /* Page */
 $route['page/(:any)'] = 'page/index/$1';
-$route['gioi-thieu'] = 'page/introduction/$1';
+$route['introduction'] = 'page/introduction/$1';
+$route['promotion'] = 'page/promotion/$1';
+$route['quality'] = 'page/quality/$1';
+$route['distributary'] = 'page/distributary/$1';
+$route['career'] = 'page/career/$1';
 $route['client-say'] = 'page/client_say';
 $route['hoi-dap'] = 'page/faq';
 $route['lien-he'] = 'page/contact';

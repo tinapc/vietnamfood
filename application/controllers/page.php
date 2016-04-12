@@ -21,6 +21,7 @@ class Page extends Front_Controller {
 		);
 		$this->load->vars($seo);
 
+
 		$this->load->vars(array('title' => $content->title));
 		$this->template->set('content', $content);
 		$this->template->set('related', $related);
@@ -28,10 +29,13 @@ class Page extends Front_Controller {
 	}
 
 	public function introduction(){
-		$content = $this->resource->get_by(array('is_default' => 1, 'content_type' => 'introduction'),'');
+		$content = $this->resource->get_by(array('id' => 151),'');
 
-		// Related entry
-		$related = $this->resource->get_where(array('content_type' => $content->content_type, 'alias !=' => $content->alias, 'published' => 1), '');
+		$breadcrumb = array(
+			'Trang chủ'	=> '/',
+			'Giới thiệu'	=> ''
+		);
+
 
 		$seo = array(
 			'seo_keyword'	=> $content->long_title,
@@ -40,37 +44,90 @@ class Page extends Front_Controller {
 		);
 		$this->load->vars($seo);
 
-		$this->load->vars(array('title' => $content->title));
-		$this->template->set('content', $content);
-		$this->template->set('related', $related);
+		$this->template->title($content->title);
+		$this->template->set(array('content' => $content, 's_lang' => $this->s_lang, 'breadcrumb' => $breadcrumb));
 		$this->template->build('page/index');	
 	}
 
-	public function whychooseTD(){
-		$content = $this->resource->get_where(array('published' => 1, 'content_type' => 'whychooseTD'),'');
+	public function promotion(){
+		$breadcrumb = array(
+			'Trang chủ'	=> '/',
+			'Khuyến mãi'	=> ''
+		);
 
-		$this->load->vars(array('title' => 'Tại sao chọn TrungDung Media'));
-		$this->template->set('content', $content);
-		$this->template->build('page/whychooseTD');	
+		$content = $this->resource->get_by(array('id' => 152),'');
+
+		$seo = array(
+			'seo_keyword'	=> $content->long_title,
+			'seo_description'	=> $content->description,
+			'seo_image'	=>  ($content->image !== '') ? $content->image : base_url().'assets/front/images/logo.png'
+		);
+		$this->load->vars($seo);
+
+		$this->template->title($content->title);
+		$this->template->set(array('content' => $content, 's_lang' => $this->s_lang, 'breadcrumb' => $breadcrumb));
+		$this->template->build('page/index');	
 	}
 
-	public function client_say(){
-		$content = $this->db->get_where('client_say', array('published' => 1))->result();
+	public function quality(){
+		$breadcrumb = array(
+			'Trang chủ'	=> '/',
+			'Chất lượng'	=> ''
+		);
+		$content = $this->resource->get_by(array('id' => 153),'');
 
-		$this->load->vars(array('title' => 'Khách hàng nói về chúng tôi'));
-		$this->template->set('content', $content);
-		$this->template->build('page/client_say');	
+		$seo = array(
+			'seo_keyword'	=> $content->long_title,
+			'seo_description'	=> $content->description,
+			'seo_image'	=>  ($content->image !== '') ? $content->image : base_url().'assets/front/images/logo.png'
+		);
+		$this->load->vars($seo);
+
+		$this->template->title($content->title);
+		$this->template->set(array('content' => $content, 's_lang' => $this->s_lang, 'breadcrumb' => $breadcrumb));
+		$this->template->build('page/index');	
 	}
 
-	public function faq(){
-		$content = $this->resource->get_where(array('published' => 1, 'content_type' => 'faq'),array('title', 'content'));
+	public function distributary(){
+		$breadcrumb = array(
+			'Trang chủ'	=> '/',
+			'Phân phối'	=> ''
+		);
+		$content = $this->resource->get_by(array('id' => 154),'');
 
-		$this->load->vars(array('title' => 'Hỏi đáp'));
-		$this->template->set('content', $content);
-		$this->template->build('page/faq');	
+		$seo = array(
+			'seo_keyword'	=> $content->long_title,
+			'seo_description'	=> $content->description,
+			'seo_image'	=>  ($content->image !== '') ? $content->image : base_url().'assets/front/images/logo.png'
+		);
+		$this->load->vars($seo);
+
+		$this->template->title($content->title);
+		$this->template->set(array('content' => $content, 's_lang' => $this->s_lang, 'breadcrumb' => $breadcrumb));
+		$this->template->build('page/index');	
 	}
 
-	public function job(){
+	public function career(){
+		$breadcrumb = array(
+			'Trang chủ'	=> '/',
+			'Tuyển dụng'	=> ''
+		);
+		$content = $this->resource->get_by(array('id' => 155),'');
+
+		$seo = array(
+			'seo_keyword'	=> $content->long_title,
+			'seo_description'	=> $content->description,
+			'seo_image'	=>  ($content->image !== '') ? $content->image : base_url().'assets/front/images/logo.png'
+		);
+		$this->load->vars($seo);
+
+		$this->template->title($content->title);
+		$this->template->set(array('content' => $content, 's_lang' => $this->s_lang, 'breadcrumb' => $breadcrumb));
+		$this->template->build('page/index');	
+	}
+
+
+	/*public function job(){
 		// Pagination config
 		$this->load->library('pagination');
 		$config['base_url'] = base_url().'tuyen-dung';
@@ -99,7 +156,7 @@ class Page extends Front_Controller {
 		$this->template->set('content', $news);
 		$this->template->set('pagi', $this->pagination->create_links());
 		$this->template->build('page/job');
-	}
+	}*/
 
 	public function contact(){
 		$this->load->vars(array('title' => 'Liên hệ'));

@@ -13,41 +13,20 @@
                             </ul>
                         </li>
 
-                        <li><a href="#"><i class="fa fa-folder"></i><span>Nội dung</span></a>
+                        <!-- <li><a href="#"><i class="fa fa-folder"></i><span>Nội dung</span></a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="<?= ADMIN_URL ?>resource/index/?contentType=introduction">
                                         <i class="fa fa-info"></i><span>Giới thiệu</span>
                                     </a>
                                 </li>
-                                <!--<li>
-                                    <a href="<?/*= ADMIN_URL */?>resource/edit/58/?contentType=whychooseTD">
-                                        <i class="fa fa-angle-right"></i><span>Lý do chọn TĐ</span>
-                                    </a>
                                 </li>
-                                <li><a href="<?/*= ADMIN_URL */?>resource/index/?contentType=faq">
-                                        <i class="fa fa-question"></i><span>Hỏi đáp</span></a>
-                                </li>
-                                <li><a href="<?/*= ADMIN_URL */?>partner">
-                                        <i class="fa fa-user"></i><span>Đối tác</span></a>
-                                </li>-->
-                                <li><a href="<?= ADMIN_URL ?>support">
-                                        <i class="fa fa-smile-o"></i><span>Hổ trợ trực tuyến</span></a>
-                                </li>
+                                
                                 <li><a href="<?= ADMIN_URL ?>resource/index/?contentType=job"><i class="fa fa-edit"></i><span>Tuyển dụng</span></a></li>
-                                <!--<li><a href="<?/*= ADMIN_URL */?>client_say/index">
-                                        <i class="fa fa-comments"></i><span>Khách hàng nói</span></a>
-                                </li>
-                                <li><a href="<?/*= ADMIN_URL */?>resource/edit/52/?contentType=guide">
-                                        <i class="fa fa-angle-right"></i><span>Hình ảnh hoạt động</span></a>
-                                </li>-->
-                                <!--<li><a href="<?/*= ADMIN_URL */?>resource/edit/53/?contentType=phone_support">
-                                        <i class="fa fa-angle-right"></i><span>Điện thoại hổ trợ</span></a>
-                                </li>
-                                <li><a href="<?/*= ADMIN_URL */?>resource/edit/54/?contentType=map">
-                                        <i class="fa fa-angle-right"></i><span>Sơ đồ đường đi</span></a>
-                                </li>-->
                             </ul>
+                        </li> -->
+                        <li><a href="<?=base_url()?>m_page">
+                            <i class="fa fa-list-ul"></i><span>Quản lý trang</span></a>
                         </li>
 
                         <li><a href="#"><i class="fa fa-folder"></i><span>Tin tức - Danh mục</span></a>
@@ -68,24 +47,6 @@
                                 <?php endif ?>
                             </ul>
                         </li>
-                        <!--<li><a href="#"><i class="fa fa-folder"></i><span>Dịch vụ kinh doanh</span></a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="<?/*= ADMIN_URL */?>resource/index/?contentType=cate_service">
-                                        <i class="fa fa-list"></i><span>Quản lý danh mục</span>
-                                    </a>
-                                </li>
-                                <?php /*if (count($this->load->get_var('resoucesCateServices')) > 0) : */?>
-                                    <?php /*foreach ($this->load->get_var('resoucesCateServices') as $row) : */?>
-                                        <li>
-                                            <a href="<?/*= ADMIN_URL */?>resource/edit/<?/*= $row->id */?>/?contentType=cate_service" title="<?/*= $row->title */?>">
-                                                <i class="fa fa-angle-right"></i><span><?/*= $row->title */?></span>
-                                            </a>
-                                        </li>
-                                    <?php /*endforeach */?>
-                                <?php /*endif */?>
-                            </ul>
-                        </li>-->
                         <li><a href="#"><i class="fa fa-folder"></i><span>Sản phẩm</span></a>
                             <ul class="sub-menu">
                                 <li>
@@ -104,13 +65,11 @@
                                 <?php endif ?>
                             </ul>
                         </li>
-                       <!-- <li><a href="<?/*= base_url() */?>client_ask"><i class="fa fa-folder"></i><span>Câu hỏi khách hàng</span></a>
-                        </li>-->
                         <li><a href="<?= base_url() ?>banner"><i class="fa fa-picture-o"></i><span>Main Banner</span></a>
                         </li>
-                        <!--<li><a href="<?/*= base_url() */?>banner_page"><i class="fa fa-picture-o"></i><span>Banner trang con</span></a>
-                        </li>-->
-
+                        <li><a href="<?= ADMIN_URL ?>support">
+                            <i class="fa fa-smile-o"></i><span>Hổ trợ trực tuyến</span></a>
+                        </li>
                     </ul>
                 </div>
             </div>
