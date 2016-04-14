@@ -40,6 +40,9 @@
 
     	<!-- jQuery -->
 		<script src="//code.jquery.com/jquery.js"></script>
+		<!-- Go to www.addthis.com/dashboard to customize your tools -->
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-570fd759e9e79ca5"></script>
+
 
 		<script type="text/javascript">
 			var base_url = '<?php echo base_url()?>',

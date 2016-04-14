@@ -29,6 +29,10 @@
 										<?php endif ?>
 									</ul>
 								</div>
+								<div class="share-tool">
+									<!-- Go to www.addthis.com/dashboard to customize your tools -->
+									<div class="addthis_sharing_toolbox"></div>
+								</div>	
 							</div>	
 						</div>
 						<div class="col-sm-7 col-md-7 col-lg-7">
