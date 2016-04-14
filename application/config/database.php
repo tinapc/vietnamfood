@@ -54,12 +54,12 @@ if(HOST_NAME == 'vietnamesefood.app') {
     $db['default']['password'] = '';
     $db['default']['database'] = 'vietnamesefood';
 } else {
-    $db['default']['hostname'] = 'localhost';
-    $db['default']['username'] = 'vietnamfod';
-    $db['default']['password'] = 'binh';
-    $db['default']['database'] = 'binh123';
+    $db['default']['hostname'] = '210.245.96.165';
+    $db['default']['username'] = 'root';
+    $db['default']['password'] = '';
+    $db['default']['database'] = 'vietnamfod';
 }
-$db['default']['dbdriver'] = 'mysqli';
+$db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;
