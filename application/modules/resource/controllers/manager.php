@@ -189,7 +189,7 @@ class Manager extends Admin_Controller {
 		if($this->input->get('contentType') == 'news_item') {
 			$return_url = ADMIN_URL.'resource/news/'.$resource->parent.'/?contentType='.$this->input->get('contentType');
 		} elseif($this->input->get('contentType') == 'product_item') {
-			$return_url = ADMIN_URL.'resource/product/'.$resource->parent.'/?contentType='.$this->input->get('contentType');
+			$return_url = ADMIN_URL.'resource/product/'.$resource->parent;
 		} elseif($this->input->get('contentType') == 'guide') {
 			$return_url = ADMIN_URL.'resource/edit/52/?contentType='.$this->input->get('contentType');
 		} elseif($this->input->get('contentType') == 'phone_support') {
@@ -207,6 +207,7 @@ class Manager extends Admin_Controller {
 			$id = $this->input->post('id') ? $this->input->post('id'): '';
 
 			foreach($_POST as $k => $v) {
+				if(!in_array($k, array('image1', 'image2', 'image3', 'image4', 'image5')))
 				$data[$k] = $v;
 			}
 
@@ -228,6 +229,15 @@ class Manager extends Admin_Controller {
 			} else {
 				$result = $this->resource->insert_update($id, $data);
 
+				foreach($_POST as $k => $v) {
+					if(in_array($k, array('image1', 'image2', 'image3', 'image4', 'image5')))
+					$image[$k] = $v;
+				}
+				$image['pro_id'] = $id;
+				//Insert Photo product
+				$this->db->delete('product_image', array('pro_id' => $id));
+				$this->resource->insert_product_image($image);
+
 				if($result){
 					$this->session->set_flashdata('message', 'Changes has been saved successfully!');
 					redirect(ADMIN_URL.'resource/edit/'.$id.'/?contentType='.$this->input->post('content_type'), 'refresh');
@@ -239,10 +249,23 @@ class Manager extends Admin_Controller {
 		}
 
 		$this->load->vars(array('title' => $resource->title));
+
+		$photos = array();
+		if($this->input->get('contentType') == 'product_item'){
+			$photos = $this->db->get_where('product_image', array('pro_id' => $id))->row();
+		}
+
+		$this->template->set('photo', $photos);
 		$this->template->set('resource', $resource);
 		$this->template->set('message', $message);
 		$this->template->set('return_url', $return_url);
-		$this->template->build('manager/edit');
+
+		if ($this->input->get('contentType') == 'product_item') {
+			$this->template->build('manager/create_product');	
+		} else {
+			$this->template->build('manager/edit');
+		}
+		
 	}
 
 	// Create new resource
@@ -348,6 +371,7 @@ class Manager extends Admin_Controller {
 		if($this->input->post()) {
 			
 			foreach($_POST as $k => $v) {
+				if(!in_array($k, array('image1', 'image2', 'image3', 'image4', 'image5')))
 				$data[$k] = $v;
 			}
 
@@ -369,6 +393,15 @@ class Manager extends Admin_Controller {
 				redirect(ADMIN_URL.'resource/create_product/'.$this->uri->segment(4).'/?contentType='.$this->input->post('content_type'), 'refresh');	
 			} else {
 				$result = $this->resource->insert_update('', $data);
+
+				foreach($_POST as $k => $v) {
+					if(in_array($k, array('image1', 'image2', 'image3', 'image4', 'image5')))
+					$image[$k] = $v;
+				}
+				$image['pro_id'] = $this->db->insert_id();
+
+				//Insert Photo product
+				$this->resource->insert_product_image($image);
 
 				if($result){
 					$this->session->set_flashdata('message', 'Changes has been saved successfully!');

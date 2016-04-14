@@ -5,6 +5,7 @@ html, body{
 	overflow-x:hidden;
 }
 
+
 //Reset
 a:link, a:visited, a:hover{
 	text-decoration:none;
@@ -151,6 +152,8 @@ a:link, a:visited, a:hover{
 
 		.pro-item{
 			position:relative;
+			height: 110px;
+			overflow: hidden;
 
 			img {
 				display: inline-block;
@@ -243,8 +246,11 @@ a:link, a:visited, a:hover{
 	a{
 		display: block;
 		overflow: hidden;
+		text-align: center;
 		img{
-			min-height: 250px;
+			display: inline-block;
+			min-height: 180px;
+			width: 100%;
 			transition: all .25s ease;
 		}
 
@@ -252,6 +258,7 @@ a:link, a:visited, a:hover{
 			transform: scale(1.1);
 		}
 	}
+	a.a-1{height:180px;}
 
 	.price{
 		padding:10px 15px;
@@ -271,7 +278,8 @@ a:link, a:visited, a:hover{
 		padding:0 15px;
 		a{
 			font-weight: bold;
-			color: #333;	
+			color: #333;
+			text-transform: capitalize;	
 		}
 	}
 	.intro{
@@ -443,6 +451,19 @@ a:link, a:visited, a:hover{
 	}
 }
 
+
+// Breadcrumb
+.crumb{
+	background:#f10606;
+	margin-top:-29px;
+	.breadcrumb{
+		background:none;
+		margin:5px 0;
+		a{
+			color:#fff;
+		}
+	}
+}
 
 // Footer
 #footer{

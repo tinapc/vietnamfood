@@ -191,5 +191,10 @@ class MY_Model extends CI_Model
 			return TRUE;
 		else 
 			return FALSE;
+	}
+
+	public function insert_product_image($data)
+	{
+		$this->db->insert('product_image', $data);
 	}   
 }

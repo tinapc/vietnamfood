@@ -35,18 +35,21 @@ class Dashboard extends Admin_Controller {
 				'phone'				=> $this->input->post('phone'),
 				'seo_k_home'	=> $this->input->post('seo_k_home'),
 				'seo_desc_home'				=> $this->input->post('seo_desc_home'),
-				'video_td'			=> $this->input->post('video_td'),
+				//'video_td'			=> $this->input->post('video_td'),
 				'company_name'			=> $this->input->post('company_name'),
 				'fax'			=> $this->input->post('fax'),
 				'hotline'			=> $this->input->post('hotline'),
 				'website'			=> $this->input->post('website'),
 				'email'			=> $this->input->post('email'),
+				'admin_email'			=> $this->input->post('admin_email')
 			);
 			$social = array(
 				'facebook'			=> $this->input->post('facebook'),
 				'twitter'			=> $this->input->post('twitter'),
-				'rss'			=> $this->input->post('rss'),
+				//'rss'			=> $this->input->post('rss'),
 				'youtube'			=> $this->input->post('youtube'),
+				'pinterest'			=> $this->input->post('pinterest'),
+				'google'			=> $this->input->post('google'),
 			);
 			
 			$data = array(

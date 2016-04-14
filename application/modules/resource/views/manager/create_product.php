@@ -4,11 +4,24 @@
     });
 </script>
 
+<style type="text/css">
+    #preview_image1 img,
+    #preview_image2 img,
+    #preview_image3 img,
+    #preview_image4 img,
+    #preview_image5 img {
+        max-width: 25%;
+    }
+</style>
+
 <div class="container-fluid" id="pcont">
     <div class="fix-nav-tool">
         <a href="javascript:void(0)" onclick="$('#myFrm').submit()" class="btn btn-primary"><i class="fa fa-save"></i> Save</a>
-        <a href="<?= ADMIN_URL ?>resource/product/<?= $this->uri->segment(4) ?>/?contentType=<?= $this->input->get('contentType') ?>" class="btn btn-default"><i
-                class="fa fa-mail-reply"></i> Close</a>
+        <?php if (isset($return_url)) : ?>
+            <a href="<?=$return_url?>" class="btn btn-default"><i class="fa fa-mail-reply"></i> Close</a>
+        <?php else : ?>
+            <a href="<?= ADMIN_URL ?>resource/product/<?= $this->uri->segment(4) ?>/?contentType=<?= $this->input->get('contentType') ?>" class="btn btn-default"><i class="fa fa-mail-reply"></i> Close</a>
+        <?php endif ?>
     </div>
 
     <div class="cl-mcont">
@@ -69,14 +82,14 @@
                                                                    data-original-title="Tạo đường dẫn thân thiện <br>Ví dụ: http://domain.com/this-name-of-page"
                                                                    data-toggle="tooltip">
                                                         </div>
-                                                        <div class="form-group">
+                                                        <!-- <div class="form-group">
                                                             <label class="">Menu Title (Vietnamese)</label>
                                                             <input type="text" name="menu_title" value="<?= @$resource->menu_title ?>" class="form-control">
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="">Menu Title (English)</label>
                                                             <input type="text" name="menu_title_en" value="<?= @$resource->menu_title_en ?>" class="form-control">
-                                                        </div>
+                                                        </div> -->
 
                                                         <div class="form-group">
                                                             <label class="">SEO Keyword</label>
@@ -98,11 +111,11 @@
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label class="">Parent resource</label>
-                                                            <select class="select2" name="parent">
-                                                                <option value="0">Normal</option>
+                                                            <select class="select2" name="parent" required>
+                                                                <option value="">Normal</option>
                                                                 <?php if (count($this->load->get_var('resoucesCateProducts')) > 0 && $this->input->get('contentType') == 'product_item') : ?>
                                                                     <?php foreach ($this->load->get_var('resoucesCateProducts') as $row) : ?>
-                                                                        <?php if ($this->uri->segment(4) && $row->id == $this->uri->segment(4)) {
+                                                                        <?php if ($this->uri->segment(4) && $row->id == $resource->parent) {
                                                                             echo '<option value="' . $row->id . '" selected="selected">' . $row->title . '</option>';
                                                                         } else {
                                                                             echo '<option value="' . $row->id . '">' . $row->title . '</option>';
@@ -117,7 +130,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="">Product Code</label>
-                                                            <input type="text" name="product_code" value="<?= @$resource->product_code ?>" class="form-control" required>
+                                                            <input type="text" name="product_code" value="<?= @$resource->product_code ?>" class="form-control">
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="">Price</label>
@@ -126,10 +139,10 @@
 
                                                         <div class="form-group">
                                                             <label class="">Price Promotion</label>
-                                                            <input type="text" name="price_promotion" value="<?= @$resource->price_promotion ?>" class="form-control" required>
+                                                            <input type="text" name="price_promotion" value="<?= @$resource->price_promotion ?>" class="form-control">
                                                         </div>
 
-                                                        <div class="form-group">
+                                                        <!-- <div class="form-group">
                                                             <label class="">External resource</label>
                                                             <input type="text" name="external_link" value="<?= @$resource->external_link ?>" class="form-control"
                                                                    placeholder="http://google"
@@ -142,7 +155,7 @@
                                                             <input type="text" name="link_attr" value="<?= @$resource->link_attr ?>" class="form-control"
                                                                    data-original-title="Thuộc tính của liên kết <br>Ví dụ:target='_blank' style='border:1px solid #ccc'"
                                                                    data-toggle="tooltip">
-                                                        </div>
+                                                        </div> -->
                                                         <div class="checkbox my-checkbox">
                                                             <label class="checkbox-inline">
                                                                 <?php if (isset($resource->published)) : ?>
@@ -186,36 +199,100 @@
                                             <div class="tab-pane cont" id="tb_setting">
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                        <div class="form-group">
+                                                        <!-- <div class="form-group">
                                                             <label class="">Icon</label>
 
                                                             <div class="input-group">
                                                                 <input type="text" name="icon" id="icon" class="form-control" value="<?= @$resource->icon ?>">
-                                          <span class="input-group-btn">
-                                          <a href="<?= base_url() ?>filemanager/dialog.php?type=1&field_id=icon&fldr=product" class="btn btn-primary iframe-btn"><i
-                                                  class="fa fa-picture-o"></i> Select File</a>
-                                          </span>
+                                                                  <span class="input-group-btn">
+                                                                  <a href="<?= base_url() ?>filemanager/dialog.php?type=1&field_id=icon&fldr=product" class="btn btn-primary iframe-btn"><i
+                                                                          class="fa fa-picture-o"></i> Select File</a>
+                                                                  </span>
                                                             </div>
                                                             <div class="row" style="display:none" id="preview_icon">
                                                                 <div class="col-sm-12">
                                                                     <img src="" class="img-responsive"/>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div> -->
 
                                                         <div class="form-group">
-                                                            <label class="">Feature Image</label>
+                                                            <label class="">Hình 1</label>
 
                                                             <div class="input-group">
-                                                                <input type="text" name="image" id="image" class="form-control" value="<?= @$resource->image ?>">
-                                          <span class="input-group-btn">
-                                          <a href="<?= base_url() ?>filemanager/dialog.php?type=1&field_id=image&fldr=product" class="btn btn-primary iframe-btn"><i
-                                                  class="fa fa-picture-o"></i> Select File</a>
-                                          </span>
+                                                                <input type="text" name="image1" id="image1" class="form-control" value="<?= @$photo->image1 ?>">
+                                                                  <span class="input-group-btn">
+                                                                  <a href="<?= base_url() ?>filemanager/dialog.php?type=1&field_id=image1&fldr=product" class="btn btn-primary iframe-btn"><i
+                                                                          class="fa fa-picture-o"></i> Select File</a>
+                                                                  </span>
                                                             </div>
-                                                            <div class="row" style="display:none" id="preview_image">
+                                                            <div class="row" style="display:block" id="preview_image1">
                                                                 <div class="col-sm-12">
-                                                                    <img src="" class="img-responsive"/>
+                                                                    <img src="<?=@$photo->image1?>" class="img-responsive"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="">Hình 2</label>
+
+                                                            <div class="input-group">
+                                                                <input type="text" name="image2" id="image2" class="form-control" value="<?= @$photo->image2 ?>">
+                                                                  <span class="input-group-btn">
+                                                                  <a href="<?= base_url() ?>filemanager/dialog.php?type=1&field_id=image2&fldr=product" class="btn btn-primary iframe-btn"><i
+                                                                          class="fa fa-picture-o"></i> Select File</a>
+                                                                  </span>
+                                                            </div>
+                                                            <div class="row" style="display:block" id="preview_image2">
+                                                                <div class="col-sm-12">
+                                                                    <img src="<?=@$photo->image2?>" class="img-responsive"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="">Hình 3</label>
+
+                                                            <div class="input-group">
+                                                                <input type="text" name="image3" id="image3" class="form-control" value="<?= @$photo->image3 ?>">
+                                                                  <span class="input-group-btn">
+                                                                  <a href="<?= base_url() ?>filemanager/dialog.php?type=1&field_id=image3&fldr=product" class="btn btn-primary iframe-btn"><i
+                                                                          class="fa fa-picture-o"></i> Select File</a>
+                                                                  </span>
+                                                            </div>
+                                                            <div class="row" style="display:block" id="preview_image3">
+                                                                <div class="col-sm-12">
+                                                                    <img src="<?=@$photo->image3?>" class="img-responsive"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="">Hình 4</label>
+
+                                                            <div class="input-group">
+                                                                <input type="text" name="image4" id="image4" class="form-control" value="<?= @$photo->image4 ?>">
+                                                                  <span class="input-group-btn">
+                                                                  <a href="<?= base_url() ?>filemanager/dialog.php?type=1&field_id=image4&fldr=product" class="btn btn-primary iframe-btn"><i
+                                                                          class="fa fa-picture-o"></i> Select File</a>
+                                                                  </span>
+                                                            </div>
+                                                            <div class="row" style="display:block" id="preview_image4">
+                                                                <div class="col-sm-12">
+                                                                    <img src="<?=@$photo->image4?>" class="img-responsive"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="">Hình 5</label>
+
+                                                            <div class="input-group">
+                                                                <input type="text" name="image5" id="image5" class="form-control" value="<?= @$photo->image5 ?>">
+                                                                  <span class="input-group-btn">
+                                                                  <a href="<?= base_url() ?>filemanager/dialog.php?type=1&field_id=image5&fldr=product" class="btn btn-primary iframe-btn"><i
+                                                                          class="fa fa-picture-o"></i> Select File</a>
+                                                                  </span>
+                                                            </div>
+                                                            <div class="row" style="display:block" id="preview_image5">
+                                                                <div class="col-sm-12">
+                                                                    <img src="<?=@$photo->image5?>" class="img-responsive"/>
                                                                 </div>
                                                             </div>
                                                         </div>

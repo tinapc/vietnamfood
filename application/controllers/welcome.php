@@ -29,7 +29,7 @@ class Welcome extends Front_Controller {
 		$this->load->vars($seo);
 
 		// Get category product
-		$this->db->select(array('title', 'title_en', 'intro', 'intro_en', 'image', 'alias'));
+		$this->db->select(array('title', 'title_en', 'intro', 'intro_en', 'image', 'alias', 'id'));
 		$this->db->where(array('show_home' => 1, 'published' => 1, 'content_type' => 'cate_product'));
 		$this->db->order_by('id', 'desc');
 		$cates = $this->db->get('resource')->result();
@@ -44,6 +44,34 @@ class Welcome extends Front_Controller {
 		$l = $this->input->get('l');
 		$this->session->set_userdata('site_lang', $l);
 		echo json_encode(array('status' => true));
+	}
+
+	public function order_email()
+	{
+		$this->load->library('email');
+
+		$data = array(
+			'product_name' => $this->input->post('order_product_name'),
+			'fullname'	=> $this->input->post('order_fullname'),
+			'phone'	=> $this->input->post('order_phone'),
+			'address'	=> $this->input->post('order_address'),
+			'email'	=> $this->input->post('order_email'),
+			'message'	=> $this->input->post('order_message')
+		);
+
+		$this->email->from($data['email'], $data['fullname']);
+		$this->email->to($this->load->get_var('admin_email'));
+		
+		$this->email->subject('Thông tin đặt hàng');
+		$this->email->message($this->load->view('order_email', $data, TRUE));
+		$this->email->set_alt_message('Thông tin đặt hàng');
+
+		if ($this->email->send())
+		{
+			echo json_encode(array('status' => true));
+		} else {
+			echo json_encode(array('status' => false));
+		}
 	}
 }
 

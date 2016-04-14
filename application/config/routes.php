@@ -57,23 +57,7 @@ $route['promotion'] = 'page/promotion/$1';
 $route['quality'] = 'page/quality/$1';
 $route['distributary'] = 'page/distributary/$1';
 $route['career'] = 'page/career/$1';
-$route['client-say'] = 'page/client_say';
-$route['hoi-dap'] = 'page/faq';
-$route['lien-he'] = 'page/contact';
-$route['tuyen-dung'] = 'page/job';
-$route['tuyen-dung/(:num)'] = 'page/job/$1';
-
-/*$route['tai-sao-chon-tam-diem'] = 'page/whychooseTD/$1';
-$route['tai-sao-chon-tam-diem/(:any)'] = 'page/index/$1';*/
-
-$route['dich-vu'] = 'service/index';
-$route['dich-vu/([a-zA-Z0-9_-]+)'] = 'service/item/$1';
-
-$route['tin-tuc'] = 'news/index';
-$route['tin-tuc/([a-zA-Z0-9_-]+)'] = 'news/detail/$1';
-$route['danh-muc-tin/(:any)'] = 'news/category/$1/$2';
-
-$route['san-pham/(:any)'] = 'service/product/$1';
+$route['contact'] = 'page/contact';
 
 // Search page
 $route['tim-kiem'] = 'page/search';

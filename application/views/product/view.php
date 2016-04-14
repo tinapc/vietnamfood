@@ -8,38 +8,47 @@
 						<div class="col-sm-5 col-md-5 col-lg-5">
 							<div id="photo_product">
 								<div class="big-photo">
-									<img src="<?=base_url()?>assets/front/images/demo-photo/san-pham-chi-tiet.jpg" class="img-responsive" alt=""/>
+									<img src="http://www.elevateweb.co.uk/wp-content/themes/radial/zoom/images/large/image2.jpg" data-zoom-image="http://www.elevateweb.co.uk/wp-content/themes/radial/zoom/images/large/image2.jpg" class="img-zoom img-responsive" alt=""/>
 								</div>
 								<div class="list-photos">
 									<ul class="list-unstyled">
-										<li><a href=""><img src="<?=base_url()?>assets/front/images/demo-photo/san-pham-chi-tiet.jpg" class="img-responsive" alt=""/></a></li>
-										<li><a href=""><img src="<?=base_url()?>assets/front/images/demo-photo/san-pham-chi-tiet.jpg" class="img-responsive" alt=""/></a></li>
-										<li><a href=""><img src="<?=base_url()?>assets/front/images/demo-photo/san-pham-chi-tiet.jpg" class="img-responsive" alt=""/></a></li>
-										<li><a href=""><img src="<?=base_url()?>assets/front/images/demo-photo/san-pham-chi-tiet.jpg" class="img-responsive" alt=""/></a></li>
-										<li><a href=""><img src="<?=base_url()?>assets/front/images/demo-photo/san-pham-chi-tiet.jpg" class="img-responsive" alt=""/></a></li>
+										<?php if (!empty($photo->image1)) : ?>
+										<li><a href="javascript:void(0)" onclick="loadImage('<?=cover_image_path($photo->image1)?>')" rel="<?=cover_image_path($photo->image1)?>"><img src="<?=cover_image_path($photo->image1)?>" class="img-responsive" alt=""/></a></li>
+										<?php endif ?>
+										<?php if (!empty($photo->image2)) : ?>
+										<li><a href="javascript:void(0)" onclick="loadImage('<?=cover_image_path($photo->image2)?>')"><img src="<?=cover_image_path($photo->image2)?>" class="img-responsive" alt=""/></a></li>
+										<?php endif ?>
+										<?php if (!empty($photo->image3)) : ?>
+										<li><a href="javascript:void(0)" onclick="loadImage('<?=cover_image_path($photo->image3)?>')"><img src="<?=cover_image_path($photo->image3)?>" class="img-responsive" alt=""/></a></li>
+										<?php endif ?>
+										<?php if (!empty($photo->image4)) : ?>
+										<li><a href="javascript:void(0)" onclick="loadImage('<?=cover_image_path($photo->image4)?>')"><img src="<?=cover_image_path($photo->image4)?>" class="img-responsive" alt=""/></a></li>
+										<?php endif ?>
+										<?php if (!empty($photo->image5)) : ?>
+										<li><a href="javascript:void(0)" onclick="loadImage('<?=cover_image_path($photo->image5)?>')"><img src="<?=cover_image_path($photo->image5)?>" class="img-responsive" alt=""/></a></li>
+										<?php endif ?>
 									</ul>
 								</div>
 							</div>	
 						</div>
 						<div class="col-sm-7 col-md-7 col-lg-7">
 							<div class="detail">
-								<h1>Trà Atiso túi lọc - ATL12</h1>
+								<h1><?php echo ($s_lang == 'vi') ? $product->title : $product->title_en ?></h1>
 								<p class="price">
-									<span class="promotion">Giá khuyến mãi: 500,000 đ</span>
-									<span>Giá bán: 700,000 đ</span>
-									<span class="viewed pull-right"><i class="fa fa-eye"></i> 50</span>
+									<?php if ($product->price_promotion != 0) : ?>
+										<span class="promotion"><?=$this->lang->line('txt_price_promotion')?>: <?=number_format($product->price_promotion, '3', ',', '')?> đ</span>
+										<span><?=$this->lang->line('txt_price')?>: <?=number_format($product->price, '3', ',', '')?> đ</span>
+									<?php else : ?>
+										<span><?=$this->lang->line('txt_price')?>: <?=number_format($product->price, '3', ',', '')?> đ</span>
+									<?php endif ?>
+									<span class="viewed pull-right"><i class="fa fa-eye"></i> <?=$product->viewed?></span>
 								</p>
 								<div class="desc">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-									proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									<?php echo ($s_lang == 'vi') ? $product->content : $product->content_en ?>
 								</div>
 
 								<p class="text-center">
-									<a href="javascript:void(0)" data-toggle="modal" data-target="#modal-order" class="btn btn-success"><i class="fa fa-shopping-bag"></i> <?=$this->lang->line('txt_addcart')?></a>
+									<a href="javascript:void(0)" onclick="loadModalOrder('<?=$product->title?>')" class="btn btn-success"><i class="fa fa-shopping-bag"></i> <?=$this->lang->line('txt_addcart')?></a>
 								</p>
 							</div>	
 						</div>
@@ -48,116 +57,46 @@
 
 				<div class="sp-related">
 					<h3 class="title title-s-13"> <i class="fa fa-list-alt"></i> <?=$this->lang->line('txt_product_related');?></h3>
-					<div class="row">
-						<div class="col-sm-4 col-md-4 col-lg-4">
-							<div class="item-product">
-								<div class="save-money">-27%</div>
-								<a href="">
-									<img src="<?=base_url()?>assets/front/images/demo-photo/san-pham-chi-tiet.jpg" class="img-responsive" alt=""/>
-								</a>
-								<div class="clearfix"></div>
-								<div class="price">
-									<span class="price-1 pull-left">500,000 đ</span>
-									<span class="price-2 pull-right">700,000 đ</span>
-								</div>
-								<div class="clearfix"></div>
-								
-								<p class="intro">Lorem ipsum dolor sit amet, consectetur...</p>
-								
-							</div>	
-						</div>
+					<?php if (count($related) > 0) : ?>
+						<div class="row">
+							<?php foreach ($related as $product) : ?>
+								<?php 
+									if ($product->price_promotion != 0) {
+										$percent = ceil(($product->price_promotion * 100) / $product->price);
+									} else {
+										$percent = 0;
+									}
 
-						<div class="col-sm-4 col-md-4 col-lg-4">
-							<div class="item-product">
-								<div class="save-money">-27%</div>
-								<a href="">
-									<img src="<?=base_url()?>assets/front/images/demo-photo/san-pham-chi-tiet.jpg" class="img-responsive" alt=""/>
-								</a>
-								<div class="clearfix"></div>
-								<div class="price">
-									<span class="price-1 pull-left">500,000 đ</span>
-									<span class="price-2 pull-right">700,000 đ</span>
-								</div>
-								<div class="clearfix"></div>
-								
-								<p class="intro">Lorem ipsum dolor sit amet, consectetur...</p>
-								
-							</div>	
+									$this->db->select('image1');
+									$img = $this->db->get_where('product_image', array('pro_id' => $product->id))->row();
+								?>
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<div class="item-product">
+									<?php if ($percent > 0) : ?>
+									<div class="save-money">-<?=$percent?>%</div>
+									<?php endif ?>
+									<a class="a-1" href="<?=site_url('product/view/'. $product->id)?>">
+										<img src="<?=cover_image_path($img->image1)?>" class="img-responsive" alt=""/>
+									</a>
+									<div class="clearfix"></div>
+									<div class="price">
+										<?php if ($product->price_promotion != 0) : ?>
+											<span class="price-1 pull-left"><?=number_format($product->price_promotion, '3', ',', '')?> đ</span>
+											<span class="price-2 pull-right"><?=number_format($product->price, '3', ',', '')?> đ</span>
+										<?php else : ?>
+											<span class="price-1 pull-left"><?=number_format($product->price, '3', ',', '')?> đ</span>
+										<?php endif ?>
+									</div>
+									<div class="clearfix"></div>
+									<h2 class="title-s-13"><a href="<?=site_url('product/view/'. $product->id)?>"><?php echo ($s_lang == 'vi') ? $product->title : $product->title_en ?></a></h2>
+									<p class="viewed text-right">
+										<i class="fa fa-eye"></i> <?=$product->viewed?>
+									</p>
+								</div>	
+							</div>
+							<?php endforeach ?>
 						</div>
-
-						<div class="col-sm-4 col-md-4 col-lg-4">
-							<div class="item-product">
-								<div class="save-money">-27%</div>
-								<a href="">
-									<img src="<?=base_url()?>assets/front/images/demo-photo/san-pham-chi-tiet.jpg" class="img-responsive" alt=""/>
-								</a>
-								<div class="clearfix"></div>
-								<div class="price">
-									<span class="price-1 pull-left">500,000 đ</span>
-									<span class="price-2 pull-right">700,000 đ</span>
-								</div>
-								<div class="clearfix"></div>
-								
-								<p class="intro">Lorem ipsum dolor sit amet, consectetur...</p>
-								
-							</div>	
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-4 col-md-4 col-lg-4">
-							<div class="item-product">
-								<div class="save-money">-27%</div>
-								<a href="">
-									<img src="<?=base_url()?>assets/front/images/demo-photo/sp1-big.jpg" class="img-responsive" alt=""/>
-								</a>
-								<div class="clearfix"></div>
-								<div class="price">
-									<span class="price-1 pull-left">500,000 đ</span>
-									<span class="price-2 pull-right">700,000 đ</span>
-								</div>
-								<div class="clearfix"></div>
-								
-								<p class="intro">Lorem ipsum dolor sit amet, consectetur...</p>
-								
-							</div>	
-						</div>
-
-						<div class="col-sm-4 col-md-4 col-lg-4">
-							<div class="item-product">
-								<div class="save-money">-27%</div>
-								<a href="">
-									<img src="<?=base_url()?>assets/front/images/demo-photo/sp1-big.jpg" class="img-responsive" alt=""/>
-								</a>
-								<div class="clearfix"></div>
-								<div class="price">
-									<span class="price-1 pull-left">500,000 đ</span>
-									<span class="price-2 pull-right">700,000 đ</span>
-								</div>
-								<div class="clearfix"></div>
-								
-								<p class="intro">Lorem ipsum dolor sit amet, consectetur...</p>
-								
-							</div>	
-						</div>
-
-						<div class="col-sm-4 col-md-4 col-lg-4">
-							<div class="item-product">
-								<div class="save-money">-27%</div>
-								<a href="">
-									<img src="<?=base_url()?>assets/front/images/demo-photo/sp1-big.jpg" class="img-responsive" alt=""/>
-								</a>
-								<div class="clearfix"></div>
-								<div class="price">
-									<span class="price-1 pull-left">500,000 đ</span>
-									<span class="price-2 pull-right">700,000 đ</span>
-								</div>
-								<div class="clearfix"></div>
-								
-								<p class="intro">Lorem ipsum dolor sit amet, consectetur...</p>
-								
-							</div>	
-						</div>
-					</div>
+					<?php endif ?>
 				</div><!--End San pham lien quan -->
 				
 
@@ -165,80 +104,9 @@
 
 			<div class="col-sm-3 col-md-3 col-lg-3">
 				<div class="sidebar">
-					<div class="support-sidebar">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="block support">
-									<h3 class="title title-s-13"> <i class="fa fa-phone-square"></i> <?=$this->lang->line('txt_support_online');?></h3>
-									<div class="c">
-										<p class="hotline">0122 67 69 373</p>
-										<div class="nickchat text-right">
-											<a href=""><img src="<?=base_url()?>assets/front/images/icons/skype2.png"></a>
-											<a href=""><img src="<?=base_url()?>assets/front/images/icons/callphone.png"></a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>	
-					</div>
+					<?php widget::run('support_online')?>
 
-					<div class="sp-xem-nhieu">
-						<div class="title title-s-13"><i class="fa fa-shopping-cart"></i> <?=$this->lang->line('txt_viewed_product');?></div>
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="item-product">
-									<div class="save-money">-27%</div>
-									<a href="">
-										<img src="<?=base_url()?>assets/front/images/demo-photo/sp1-big.jpg" class="img-responsive" alt=""/>
-									</a>
-									<div class="clearfix"></div>
-									<div class="price">
-										<span class="price-1 pull-left">500,000 đ</span>
-										<span class="price-2 pull-right">700,000 đ</span>
-									</div>
-									<div class="clearfix"></div>
-									
-									<p class="intro">Lorem ipsum dolor sit amet, consectetur...</p>
-								</div>	
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="item-product">
-									<div class="save-money">-27%</div>
-									<a href="">
-										<img src="<?=base_url()?>assets/front/images/demo-photo/sp1-big.jpg" class="img-responsive" alt=""/>
-									</a>
-									<div class="clearfix"></div>
-									<div class="price">
-										<span class="price-1 pull-left">500,000 đ</span>
-										<span class="price-2 pull-right">700,000 đ</span>
-									</div>
-									<div class="clearfix"></div>
-									
-									<p class="intro">Lorem ipsum dolor sit amet, consectetur...</p>
-								</div>	
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="item-product">
-									<div class="save-money">-27%</div>
-									<a href="">
-										<img src="<?=base_url()?>assets/front/images/demo-photo/sp1-big.jpg" class="img-responsive" alt=""/>
-									</a>
-									<div class="clearfix"></div>
-									<div class="price">
-										<span class="price-1 pull-left">500,000 đ</span>
-										<span class="price-2 pull-right">700,000 đ</span>
-									</div>
-									<div class="clearfix"></div>
-									
-									<p class="intro">Lorem ipsum dolor sit amet, consectetur...</p>
-								</div>	
-							</div>
-						</div>
-					</div>
+					<?php widget::run('most_view_product')?>
 				</div>	
 			</div>
 
@@ -286,7 +154,7 @@
 		    </div>
 		    <div class="modal-footer">
 		    	<button type="button" class="btn btn-default" data-dismiss="modal"><?=$this->lang->line('txt_close')?></button>
-		        <button type="button" class="btn btn-primary"><?=$this->lang->line('txt_send')?></button>
+		        <a href="javascript:void(0)" onclick="order_email()" class="btn btn-primary" id="btn-submit"><?=$this->lang->line('txt_send')?></a>
 		    </div>
 	    </div>	
   	</div>

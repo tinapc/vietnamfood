@@ -5,6 +5,30 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title><?php echo $template['title']?></title>
+		<meta name="description" content="<?=$this->load->get_var('seo_description')?>"/>
+		<meta name="keywords" content="<?=$this->load->get_var('seo_keyword')?>"/>
+		<link rel="canonical" href="<?=($this->load->get_var('seo_url')) ? $this->load->get_var('seo_url') : current_url()?>" />
+
+		<!--This meta only for Facebook-->
+		<meta property="og:image" content="<?=$this->load->get_var('seo_image')?>"/>
+		<meta property="og:url" content="<?=($this->load->get_var('seo_url')) ? $this->load->get_var('seo_url') : current_url()?>"/>
+		<meta property="og:title" content="<?php echo $template['title']?>"/>
+		<meta property="og:description" content="<?=$this->load->get_var('seo_description')?>"/>
+		<meta property="og:site_name" content="<?=$this->load->get_var('site_name')?>"/>
+		<meta property="fb:app_id" content="872365952794421">
+		<!--End Meta for Facebook-->
+
+		<!--Meta for Twitter-->
+		<meta name="twitter:card" content="summary"/> 
+		<meta name="twitter:site" content="<?=$this->load->get_var('site_name')?>"/> 
+		<meta name="twitter:title" content="<?php echo $template['title']?>"/> 
+		<meta name="twitter:description" content="<?=$this->load->get_var('seo_description')?>"/> 
+		<meta name="twitter:image" content="<?=$this->load->get_var('seo_image')?>"/>
+
+		<!-- Schema.org markup for Google+ --> 
+		<meta itemprop="name" content="<?php echo $template['title']?>"/> 
+		<meta itemprop="description" content="<?=$this->load->get_var('seo_description')?>"/> 
+		<meta itemprop="image" content="<?=$this->load->get_var('seo_image')?>"/>
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -18,7 +42,9 @@
 		<script src="//code.jquery.com/jquery.js"></script>
 
 		<script type="text/javascript">
-			var base_url = '<?php echo base_url()?>';
+			var base_url = '<?php echo base_url()?>',
+				txt_success = '<?=$this->lang->line("txt_send_email_ok")?>',
+				txt_error = '<?=$this->lang->line("txt_send_email_error")?>';
 		</script>
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -30,6 +56,12 @@
 	</head>
 	<body>
 		
+	<?php 
+	$this->db->select('id, title, title_en, alias');
+	$this->db->order_by('menu_index', 'asc');
+	$catePros = $this->db->get_where('resource', array('content_type' => 'cate_product', 'published' => 1))->result();
+	?>
+
 		<div id="header">
 			<div class="container">
 				<div class="row">
@@ -71,14 +103,14 @@
 								     	<ul class="nav navbar-nav navbar-right">
 									        <li><a href="<?php echo site_url('introduction')?>"><?=$this->lang->line('nav_gt')?></a></li>
 									        <li class="dropdown">
-									        	<a href="<?php echo site_url('product')?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?=$this->lang->line('nav_sp')?> <span class="caret"></span></a>
+									        	<a href="<?php echo site_url('product')?>" class="dropdown-toggle"><?=$this->lang->line('nav_sp')?> <span class="caret"></span></a>
+									        	<?php if (count($catePros) > 0) : ?>
 									          	<ul class="dropdown-menu">
-									            	<li><a href="#">Action</a></li>
-									            	<li><a href="#">Another action</a></li>
-									            	<li><a href="#">Something else here</a></li>
-									            	<li role="separator" class="divider"></li>
-									            	<li><a href="#">Separated link</a></li>
+									          		<?php foreach ($catePros as $cat) : ?>
+									            	<li><a href="<?=site_url('product/category/' . $cat->alias)?>"><?php echo ($s_lang == 'vi') ? $cat->title : $cat->title_en ?></a></li>
+									            	<?php endforeach ?>
 									          	</ul>
+									          	<?php endif ?>
 									        </li>
 									        <li><a href="<?php echo site_url('promotion')?>"><?=$this->lang->line('nav_km')?></a></li>
 									        <li><a href="<?php echo site_url('distributary')?>"><?=$this->lang->line('nav_distributary')?></a></li>
@@ -97,13 +129,14 @@
 	    <?php if($this->router->fetch_class() == 'welcome') : ?>
 	   		<?php widget::run('main_banner');?>
 		<?php else : ?>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<?php widget::run('breadcrumb', $breadcrumb) ?>		
+			<div class="crumb">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<?php widget::run('breadcrumb', $breadcrumb) ?>		
+						</div>
 					</div>
 				</div>
-				
 			</div>
 		<?php endif ?>
 
@@ -117,11 +150,18 @@
 		
 		<!-- Bootstrap JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		
+		<script type="text/javascript" src="<?=base_url()?>assets/front/plugin/elevatezoom/jquery.elevatezoom.js"></script>
+
  		<!-- <script src="Hello World"></script> -->
  		<script type="text/javascript">
  			jQuery(document).ready(function($) {
  				$('.carousel-inner .item:first').addClass('active');
+
+ 				// Zoom image
+ 				$('.img-zoom').elevateZoom({
+ 					tint:true, tintColour:'#F90', tintOpacity:0.5
+ 				}); 
  			});
  		</script>
  		<script src="<?=base_url()?>assets/front/js/main.js"></script>

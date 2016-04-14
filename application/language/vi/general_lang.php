@@ -13,6 +13,8 @@ $lang['txt_product']	= 'Sản phẩm';
 $lang['txt_view_more'] = 'Xem thêm';
 $lang['txt_product_related'] = 'Sản phẩm liên quan';
 $lang['txt_addcart'] = 'Mua hàng';
+$lang['txt_price'] = 'Giá bán';
+$lang['txt_price_promotion'] = 'Giá khuyến mãi';
 
 // Sidebar
 $lang['txt_support_online'] = 'Hổ trợ trực tuyến';
@@ -34,3 +36,7 @@ $lang['nav_km'] = 'Khuyến mãi';
 $lang['nav_quality'] = 'Chất lượng';
 $lang['nav_distributary'] = 'Phân phối';
 $lang['nav_lh'] = 'Liên hệ';
+
+// Email
+$lang['txt_send_email_ok'] = 'Thông tin của bạn đã được gởi đến chúng tối. Cảm ơn sự quan tâm của quí khách hàng.';
+$lang['txt_send_email_error'] = 'Đã có lỗi xảy ra trong khi gởi thông tin. Vui lòng thử lại!';

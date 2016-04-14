@@ -159,7 +159,14 @@ class Page extends Front_Controller {
 	}*/
 
 	public function contact(){
+
+		$breadcrumb = array(
+			'Trang chủ'	=> '/',
+			'Liên hệ'	=> ''
+		);
+
 		$this->load->vars(array('title' => 'Liên hệ'));
+		$this->template->set(array('breadcrumb' => $breadcrumb));
 		$this->template->build('page/contact');	
 	}
 

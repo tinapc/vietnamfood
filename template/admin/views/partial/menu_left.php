@@ -13,23 +13,11 @@
                             </ul>
                         </li>
 
-                        <!-- <li><a href="#"><i class="fa fa-folder"></i><span>Nội dung</span></a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="<?= ADMIN_URL ?>resource/index/?contentType=introduction">
-                                        <i class="fa fa-info"></i><span>Giới thiệu</span>
-                                    </a>
-                                </li>
-                                </li>
-                                
-                                <li><a href="<?= ADMIN_URL ?>resource/index/?contentType=job"><i class="fa fa-edit"></i><span>Tuyển dụng</span></a></li>
-                            </ul>
-                        </li> -->
                         <li><a href="<?=base_url()?>m_page">
                             <i class="fa fa-list-ul"></i><span>Quản lý trang</span></a>
                         </li>
 
-                        <li><a href="#"><i class="fa fa-folder"></i><span>Tin tức - Danh mục</span></a>
+                        <!-- <li><a href="#"><i class="fa fa-folder"></i><span>Tin tức - Danh mục</span></a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="<?= ADMIN_URL ?>resource/index/?contentType=cate_news">
@@ -46,7 +34,7 @@
                                     <?php endforeach ?>
                                 <?php endif ?>
                             </ul>
-                        </li>
+                        </li> -->
                         <li><a href="#"><i class="fa fa-folder"></i><span>Sản phẩm</span></a>
                             <ul class="sub-menu">
                                 <li>

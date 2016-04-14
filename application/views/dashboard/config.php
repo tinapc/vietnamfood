@@ -71,10 +71,10 @@
                                         <label class="">Phone</label>
                                         <input type="text" name="phone" value="<?=@$general['phone']?>" class="form-control" >
                                       </div>
-                                      <div class="form-group">
+                                      <!-- <div class="form-group">
                                         <label class="">Video TĐ</label>
                                         <input type="text" name="video_td" value="<?=@$general['video_td']?>" class="form-control" >
-                                      </div>
+                                      </div> -->
                                     </div>
                                     <div class="col-sm-6">
                                       <div class="form-group">
@@ -84,6 +84,10 @@
                                       <div class="form-group">
                                         <label class="">Email</label>
                                         <input type="text" name="email" value="<?=@$general['email']?>" class="form-control" >
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="">Email nhận đơn đặt hàng</label>
+                                        <input type="text" name="admin_email" value="<?=@$general['admin_email']?>" class="form-control" >
                                       </div>
                                       <div class="form-group">
                                         <label class="">Fax</label>
@@ -113,9 +117,13 @@
 	                                        <input type="text" name="twitter" value="<?=@$social['twitter']?>" class="form-control">
 	                                      </div>
 	                                      <div class="form-group">
-	                                        <label class="">RSS</label>
-	                                        <input type="text" name="rss" value="<?=@$social['rss']?>" class="form-control">
+	                                        <label class="">Google+</label>
+	                                        <input type="text" name="google" value="<?=@$social['google']?>" class="form-control">
 	                                      </div>                                      
+                                        <div class="form-group">
+                                          <label class="">Pinterest</label>
+                                          <input type="text" name="pinterest" value="<?=@$social['pinterest']?>" class="form-control">
+                                        </div>                                      
                                     </div>
                                   </div>
                               </div>

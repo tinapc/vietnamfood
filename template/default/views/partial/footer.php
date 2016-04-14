@@ -17,9 +17,9 @@
 					<h4 class="title-s-13"><?=$this->lang->line('txt_social')?></h4>
 					<div class="link">
 						<a class="fb" href="<?=$this->load->get_var('facebook')?>"><i class="fa fa-facebook"></i></a>
-						<a class="google" href=""><i class="fa fa-google-plus"></i></a>
+						<a class="google" href="<?=$this->load->get_var('google')?>"><i class="fa fa-google-plus"></i></a>
 						<a class="tw" href="<?=$this->load->get_var('twitter')?>"><i class="fa fa-twitter"></i></a>
-						<a class="pin" href=""><i class="fa fa-pinterest"></i></a>
+						<a class="pin" href="<?=$this->load->get_var('pinterest')?>"><i class="fa fa-pinterest"></i></a>
 						<a class="youtube" href="<?=$this->load->get_var('youtube')?>"><i class="fa fa-youtube"></i></a>
 					</div>
 				</div>

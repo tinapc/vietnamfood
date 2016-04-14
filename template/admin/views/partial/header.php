@@ -72,7 +72,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="<?= site_url() ?>" target="_blank">Home</a></li>
-                <li><a href="<?= base_url() ?>guide_admin.html" target="_blank">Hướng dẫn sử dụng Admin Panel</a></li>
+                <!-- <li><a href="<?= base_url() ?>guide_admin.html" target="_blank">Hướng dẫn sử dụng Admin Panel</a></li> -->
 
             </ul>
             <ul class="nav navbar-nav navbar-right user-nav">

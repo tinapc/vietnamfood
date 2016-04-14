@@ -14,6 +14,8 @@ $lang['txt_product']	= 'Product';
 $lang['txt_view_more'] = 'View more';
 $lang['txt_product_related'] = 'Related product';
 $lang['txt_addcart'] = 'Add Cart';
+$lang['txt_price'] = 'Price';
+$lang['txt_price_promotion'] = 'Price promotion';
 
 // Sidebar
 $lang['txt_support_online'] = 'Support online';
@@ -35,4 +37,8 @@ $lang['nav_quality'] = 'Quality';
 $lang['nav_km'] = 'Promotion';
 $lang['nav_distributary'] = 'Distributary';
 $lang['nav_lh'] = 'Contact';
+
+// Email
+$lang['txt_send_email_ok'] = 'Your information has been sent to us. Thank for your interesting';
+$lang['txt_send_email_error'] = 'Have an error while trying to send this information. Please try again!';
 

@@ -372,6 +372,10 @@ $config['subpages'] = array(
     'contact'   => 'Liên hệ'
 );
 
+// Receiption email
+$config['admin_email'] = 'tinapc@gmail.com';
+
+
 /*
 |--------------------------------------------------------------------------
 | Config Modules
