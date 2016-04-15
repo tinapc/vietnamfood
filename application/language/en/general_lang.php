@@ -8,6 +8,7 @@ $lang['txt_online'] = 'Online';
 $lang['txt_total'] = 'Total';
 $lang['txt_close'] = 'Close';
 $lang['txt_order'] = 'Order';
+$lang['txt_post_related'] = 'Other article';
 
 // Product
 $lang['txt_product']	= 'Product';

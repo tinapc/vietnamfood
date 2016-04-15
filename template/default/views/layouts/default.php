@@ -115,7 +115,7 @@
 									          	</ul>
 									          	<?php endif ?>
 									        </li>
-									        <li><a href="<?php echo site_url('promotion')?>"><?=$this->lang->line('nav_km')?></a></li>
+									        <li><a href="<?php echo site_url('promotion-list')?>"><?=$this->lang->line('nav_km')?></a></li>
 									        <li><a href="<?php echo site_url('distributary')?>"><?=$this->lang->line('nav_distributary')?></a></li>
 									        <li><a href="<?php echo site_url('quality')?>"><?=$this->lang->line('nav_quality')?></a></li>
 									        <li><a href="<?php echo site_url('contact')?>"><?=$this->lang->line('nav_lh')?></a></li>

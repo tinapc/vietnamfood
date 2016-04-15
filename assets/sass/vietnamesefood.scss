@@ -226,6 +226,24 @@ a:link, a:visited, a:hover{
 	}
 }
 
+// List news
+.list-news{
+    .item{
+        margin-bottom: 20px;
+    }
+}
+
+.news-related {
+    li {
+        padding:5px 0;
+
+        a{
+            color:#333;
+        }
+    }
+
+}
+
 // List products
 .list-products{
 }

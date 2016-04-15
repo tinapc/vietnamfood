@@ -68,7 +68,7 @@
 			</div>
 			<div class="col-sm-4 col-md-4 col-lg-4">
 				<div class="block">
-					<h3 class="title-s-18"><a href="<?=site_url('promotion')?>"><?php echo ($s_lang === 'vi') ? $promotion->title : $promotion->title_en?></a></h3>
+					<h3 class="title-s-18"><a href="<?=site_url('promotion/view/'. $promotion->id)?>"><?php echo ($s_lang === 'vi') ? $promotion->title : $promotion->title_en?></a></h3>
 					<p class="img-promotion">
 						<img src="<?=cover_image_path($promotion->image)?>" class="img-responsive" alt=""/>
 					</p>

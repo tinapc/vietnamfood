@@ -53,7 +53,9 @@ $route['manager'] = 'dashboard';
 /* Page */
 $route['page/(:any)'] = 'page/index/$1';
 $route['introduction'] = 'page/introduction/$1';
-$route['promotion'] = 'page/promotion/$1';
+$route['promotion-list'] = 'page/promotion/$1';
+$route['promotion-list/(:num)'] = 'page/promotion/$1';
+$route['promotion/view/(:num)'] = 'page/view_promotion/$1';
 $route['quality'] = 'page/quality/$1';
 $route['distributary'] = 'page/distributary/$1';
 $route['career'] = 'page/career/$1';

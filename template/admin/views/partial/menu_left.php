@@ -16,6 +16,9 @@
                         <li><a href="<?=base_url()?>m_page">
                             <i class="fa fa-list-ul"></i><span>Quản lý trang</span></a>
                         </li>
+                        <li><a href="<?= ADMIN_URL ?>resource/index/?contentType=job">
+                                <i class="fa fa-list-ul"></i><span>Tin khuyến mãi</span></a>
+                        </li>
 
                         <!-- <li><a href="#"><i class="fa fa-folder"></i><span>Tin tức - Danh mục</span></a>
                             <ul class="sub-menu">

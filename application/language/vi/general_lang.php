@@ -7,6 +7,7 @@ $lang['txt_online'] = 'Đang truy cập';
 $lang['txt_total'] = 'Tổng số lượt';
 $lang['txt_close'] = 'Đóng';
 $lang['txt_order'] = 'Đặt hàng';
+$lang['txt_post_related'] = 'Bài viết khác';
 
 // Product
 $lang['txt_product']	= 'Sản phẩm';

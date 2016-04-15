@@ -19,7 +19,10 @@ class Welcome extends Front_Controller {
 		// Introducton
 		$data['introduc'] = $this->resource->get_by(array('id' => 151), array('title', 'title_en', 'intro', 'intro_en', 'alias'));
 		// Promotion
-		$data['promotion'] = $this->resource->get_by(array('id' => 152), array('title', 'title_en', 'image'));
+        $this->db->where('content_type', 'job');
+        $this->db->order_by('id', 'desc');
+        $this->db->limit(1);
+		$data['promotion'] = $this->db->get('resource')->row();
 
 		$seo = array(
 			'seo_keyword'	=> $this->load->get_var('seo_k_home'),
