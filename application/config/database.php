@@ -51,10 +51,10 @@ $active_record = TRUE;
 if(HOST_NAME == 'vietnamesefood.app') {
     $db['default']['hostname'] = 'localhost';
     $db['default']['username'] = 'root';
-    $db['default']['password'] = '';
+    $db['default']['password'] = 'duchung123';
     $db['default']['database'] = 'vietnamesefood';
 } else {
-    $db['default']['hostname'] = '210.245.96.165';
+    $db['default']['hostname'] = 'localhost';
     $db['default']['username'] = 'root';
     $db['default']['password'] = '';
     $db['default']['database'] = 'vietnamfod';
