@@ -156,7 +156,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="">Alias</label>
-                                                            <input type="text" name="alias" value="<?= @$resource->alias ?>" class="form-control"
+                                                            <input type="text" name="alias" id="alias" value="<?= @$resource->alias ?>" class="form-control"
                                                                    data-original-title="Tạo đường dẫn thân thiện <br>Ví dụ: http://domain.com/this-name-of-page"
                                                                    data-toggle="tooltip">
                                                         </div>
@@ -330,6 +330,14 @@
 
         loadImagePreview('icon');
         loadImagePreview('image');
+
+        //Alias
+        $('#alias').keyup(function(event) {
+            var alias = $(this).val();
+            alias = alias.replace(' ', '-');
+            $(this).val(alias)
+        });
+        
     });
 
     function responsive_filemanager_callback(fieldID) {

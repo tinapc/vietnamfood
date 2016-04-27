@@ -34,7 +34,7 @@ $lang['txt_send'] = 'Gởi thông tin';
 $lang['nav_gt'] = 'Giới thiệu';
 $lang['nav_sp'] = 'Sản phẩm';
 $lang['nav_km'] = 'Khuyến mãi';
-$lang['nav_quality'] = 'Chất lượng';
+$lang['nav_quality'] = 'Góc ẩm thực';
 $lang['nav_distributary'] = 'Phân phối';
 $lang['nav_lh'] = 'Liên hệ';
 

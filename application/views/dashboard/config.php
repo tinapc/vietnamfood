@@ -30,7 +30,7 @@
                        </div>
                 <?php endif ?>
                 <div class="content">
-                  <form action="<?=site_url(uri_string())?>" method="post" id="myFrm" class="form-horizontal group-border-dashed" style="border-radius: 0px;" data-parsley-validate novalidate>
+                  <form action="<?=site_url(uri_string())?>" method="post" id="myFrm" enctype="multipart/form-data" class="form-horizontal group-border-dashed" style="border-radius: 0px;" data-parsley-validate novalidate>
                     <div class="row">
                       <div class="col-sm-12">
                           <!--Start Tab-->
@@ -96,6 +96,21 @@
                                       <div class="form-group">
                                         <label class="">Hotline</label>
                                         <input type="text" data-toggle="tooltip" title="Nếu nhiều hơn một số Hotline, bạn có thể dùng dấu chấm phẩy để phân cách. <br> Ví dụ: 08.1234567, 0987665511" name="hotline" value="<?=@$general['hotline']?>" class="form-control" >
+                                      </div> 
+                                      <div class="form-group">
+                                        <label class="">Logo</label>
+                                        <div class="input-group">
+                                              <input type="text" name="logo" id="logo" class="form-control" value="<?= @$general['logo']?>">
+                                                <span class="input-group-btn">
+                                                <a href="<?= base_url() ?>filemanager/dialog.php?type=1&field_id=logo&fldr=logo" class="btn btn-primary iframe-btn"><i
+                                                        class="fa fa-picture-o"></i> Select File</a>
+                                                </span>
+                                          </div>
+                                          <div class="row" style="display:block" id="logo">
+                                              <div class="col-sm-12">
+                                                  <img src="<?= @$general['logo']?>" class="img-responsive"/>
+                                              </div>
+                                          </div>
                                       </div>                                         
                                     </div>
                                 </div>

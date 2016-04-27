@@ -19,25 +19,12 @@
                         <li><a href="<?= ADMIN_URL ?>resource/index/?contentType=job">
                                 <i class="fa fa-list-ul"></i><span>Tin khuyến mãi</span></a>
                         </li>
-
-                        <!-- <li><a href="#"><i class="fa fa-folder"></i><span>Tin tức - Danh mục</span></a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="<?= ADMIN_URL ?>resource/index/?contentType=cate_news">
-                                        <i class="fa fa-list"></i><span>Quản lý danh mục</span>
-                                    </a>
-                                </li>
-                                <?php if (count($this->load->get_var('resoucesCateNews')) > 0) : ?>
-                                    <?php foreach ($this->load->get_var('resoucesCateNews') as $row) : ?>
-                                        <li>
-                                            <a href="<?= ADMIN_URL ?>resource/news/<?= $row->id ?>" title="<?= $row->title ?>">
-                                                <i class="fa fa-angle-right"></i><span><?= $row->title ?></span>
-                                            </a>
-                                        </li>
-                                    <?php endforeach ?>
-                                <?php endif ?>
-                            </ul>
-                        </li> -->
+                        <li><a href="<?= ADMIN_URL ?>resource/index/?contentType=culinary">
+                                <i class="fa fa-list-ul"></i><span>Góc ẩm thực</span></a>
+                        </li>
+                        <li><a href="<?= ADMIN_URL ?>resource/index/?contentType=distributary">
+                                <i class="fa fa-list-ul"></i><span>Phân phối</span></a>
+                        </li>
                         <li><a href="#"><i class="fa fa-folder"></i><span>Sản phẩm</span></a>
                             <ul class="sub-menu">
                                 <li>

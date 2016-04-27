@@ -34,7 +34,7 @@ $lang['txt_send'] = 'Send Order';
 // Main navigation
 $lang['nav_gt'] = 'Introduction';
 $lang['nav_sp'] = 'Product';
-$lang['nav_quality'] = 'Quality';
+$lang['nav_quality'] = 'Culinary Corner';
 $lang['nav_km'] = 'Promotion';
 $lang['nav_distributary'] = 'Distributary';
 $lang['nav_lh'] = 'Contact';

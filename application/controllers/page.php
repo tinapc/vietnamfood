@@ -49,26 +49,6 @@ class Page extends Front_Controller {
 		$this->template->build('page/index');	
 	}
 
-	/*public function promotion(){
-		$breadcrumb = array(
-			'Trang chủ'	=> '/',
-			'Khuyến mãi'	=> ''
-		);
-
-		$content = $this->resource->get_by(array('id' => 152),'');
-
-		$seo = array(
-			'seo_keyword'	=> $content->long_title,
-			'seo_description'	=> $content->description,
-			'seo_image'	=>  ($content->image !== '') ? $content->image : base_url().'assets/front/images/logo.png'
-		);
-		$this->load->vars($seo);
-
-		$this->template->title($content->title);
-		$this->template->set(array('content' => $content, 's_lang' => $this->s_lang, 'breadcrumb' => $breadcrumb));
-		$this->template->build('page/index');	
-	}*/
-
 	public function quality(){
 		$breadcrumb = array(
 			'Trang chủ'	=> '/',
@@ -210,36 +190,6 @@ class Page extends Front_Controller {
         $this->template->build('page/index');
     }
 
-	/*public function job(){
-		// Pagination config
-		$this->load->library('pagination');
-		$config['base_url'] = base_url().'tuyen-dung';
-		$config['total_rows'] = $this->resource->count_all(array('content_type' => 'job'));
-		$config['per_page'] = 6;
-		$config['uri_segment'] = 2;
-		$config['suffix'] = '.html'; 
-		$config['full_tag_open'] = '<ul class="pagination">';
-		$config['full_tag_close'] = '</ul>';
-		$config['next_link'] = 'Next';
-		$config['next_tag_open'] = '<li>';
-		$config['next_tag_close'] = '</li>';
-		$config['prev_link'] = 'Prev';
-		$config['prev_tag_open'] = '<li>';
-		$config['prev_tag_close'] = '</li>';
-		$config['num_tag_open'] = '<li>';
-		$config['num_tag_close'] = '</li>';
-		$config['cur_tag_open'] = '<li><a href="javascript:void(0)" style="font-weight:bold; background:#ccc">';
-		$config['cur_tag_close'] = '</a></li>';
-		$this->pagination->initialize($config); 
-
-		// Cate
-		$news = $this->resource->get_where(array('content_type' => 'job', 'published' => 1), '', array('created_at' => 'desc'), array('max' => $config['per_page'], 'begin' => $this->uri->segment(2)));
-
-		$this->load->vars(array('title' =>'Tin tuyển dụng'));
-		$this->template->set('content', $news);
-		$this->template->set('pagi', $this->pagination->create_links());
-		$this->template->build('page/job');
-	}*/
 
 	public function contact(){
 

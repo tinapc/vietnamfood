@@ -1,3 +1,6 @@
+<?php 
+$supports = $this->load->get_var('supports');
+?>
 <div class="support-sidebar">
     <div class="row">
         <div class="col-sm-12">
@@ -6,8 +9,14 @@
                 <div class="c">
                     <p class="hotline"><?=$this->load->get_var('hotline')?></p>
                     <div class="nickchat text-right">
-                        <a href="javascript:;" rel="skype"><img src="<?=base_url()?>assets/front/images/icons/skype2.png"></a>
-                        <a href="javascript:;" rel="yahoo"><img src="<?=base_url()?>assets/front/images/icons/callphone.png"></a>
+                        <?php foreach($supports as $row) : ?>
+                            <?php if($row->yahoo !=='') : ?>
+                            <a href="ymsgr:sendIM?<?=$row->skype?>" rel="skype"><img src="<?=base_url()?>assets/front/images/yahoo.gif"></a>
+                            <?php endif ?>
+                            <?php if($row->skype !=='') : ?>
+                            <a href="skype:<?=$row->skype?>?chat" rel="yahoo"><img src="<?=base_url()?>assets/front/images/icons/skype2.png"></a>
+                            <?php endif ?>
+                        <?php endforeach ?>
                     </div>
                 </div>
             </div>

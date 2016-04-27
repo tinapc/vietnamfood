@@ -61,6 +61,9 @@ $route['distributary'] = 'page/distributary/$1';
 $route['career'] = 'page/career/$1';
 $route['contact'] = 'page/contact';
 
+$route['news/(:any)'] = 'news/category/$1';
+$route['news-detail/(:num)'] = 'news/detail/$1';
+
 // Search page
 $route['tim-kiem'] = 'page/search';
 

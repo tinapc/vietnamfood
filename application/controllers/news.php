@@ -39,67 +39,100 @@ class News extends Front_Controller {
 		$this->template->build('news/index');
 	}
 
-	public function detail(){
-		$segment = $this->uri->segment(2);
-		$content = $this->resource->get_by(array('alias' => $segment),'');
+	public function detail($id){
+		$promotion = $this->db->get_where('resource', array('id' => $id))->row();
 
-		// Related entry
-		//$this->db->limit(5);
-		$this->db->order_by('id', 'desc');
-		$related = $this->resource->get_where(array('content_type' => $content->content_type, 'alias !=' => $content->alias, 'parent' => $content->parent, 'published' => 1), '');
+        // Related
+        $this->db->limit(5);
+        $this->db->order_by('id', 'desc');
+        $relateds = $this->db->get_where('resource', array('content_type' => $promotion->content_type, 'published' => 1, 'id !=' => $promotion->id))->result();
 
-		$seo = array(
-			'seo_keyword'	=> $content->long_title,
-			'seo_description'	=> $content->description,
-			'seo_image'	=>  ($content->image !== '') ? $content->image : base_url().'assets/front/images/logo.png'
-		);
-		$this->load->vars($seo);
+        $breadcrumb = array(
+            'Trang chủ'	=> '/',
+            'Khuyến mãi'	=> '/promotion-list',
+            $promotion->title => ''
 
-		$this->load->vars(array('title' => $content->title));
-		$this->template->set('content', $content);
-		$this->template->set('related', $related);
-		$this->template->build('news/detail');	
+        );
+
+        $seo = array(
+            'seo_keyword'	=> $promotion->long_title,
+            'seo_description'	=> $promotion->description,
+            'seo_image'	=>  ($promotion->image !== '') ? $promotion->image : base_url().'assets/front/images/logo.png'
+        );
+        $this->load->vars($seo);
+
+        $this->template->title($promotion->title);
+        $this->template->set(array(
+            'content' => $promotion,
+            's_lang' => $this->s_lang,
+            'breadcrumb' => $breadcrumb,
+            'relateds'   => $relateds
+        ));
+        $this->template->build('news/detail');	
 	}
 
-	public function category(){
-		$aliasCate = $this->uri->segment(2);
-		$page = $this->uri->segment(3);
-		$cates = $this->resource->get_by(array('alias' => $aliasCate), array('title', 'id', 'long_title', 'description', 'image'));
-		// Pagination config
+	public function category($type){
 		$this->load->library('pagination');
-		$config['base_url'] = base_url().'danh-muc-tin/'.$aliasCate;
-		$config['total_rows'] = $this->resource->count_all(array('parent' => $cates->id));
-		$config['per_page'] = 10;
-		$config['uri_segment'] = 3;
-		$config['suffix'] = '.html'; 
-		$config['full_tag_open'] = '<ul class="pagination">';
-		$config['full_tag_close'] = '</ul>';
-		$config['next_link'] = 'Next';
-		$config['next_tag_open'] = '<li>';
-		$config['next_tag_close'] = '</li>';
-		$config['prev_link'] = 'Prev';
-		$config['prev_tag_open'] = '<li>';
-		$config['prev_tag_close'] = '</li>';
-		$config['num_tag_open'] = '<li>';
-		$config['num_tag_close'] = '</li>';
-		$config['cur_tag_open'] = '<li><a href="javascript:void(0)" style="font-weight:bold; background:#ccc">';
-		$config['cur_tag_close'] = '</a></li>';
-		$this->pagination->initialize($config); 
 
-		// Cate
-		$news = $this->resource->get_where(array('parent' => $cates->id, 'published' => 1), '', array('menu_index' => 'asc'), array('max' => $config['per_page'], 'begin' => $this->uri->segment(3)));
+        $perpage = 6;
+        $offset = ($this->uri->segment(3) ? $this->uri->segment(3) : 0);
 
-		$seo = array(
-			'seo_keyword'	=> $cates->long_title,
-			'seo_description'	=> $cates->description,
-			'seo_image'	=>  ($cates->image !== '') ? $cates->image : base_url().'assets/front/images/logo.png'
-		);
-		$this->load->vars($seo);
+        $qr = $this->db->query("SELECT id FROM resource WHERE content_type ='$type' AND published = 1");
+        $numberOfProduct = $qr->num_rows();
 
-		$this->load->vars(array('title' => $cates->title));
-		$this->template->set('content', $news);
-		$this->template->set('pagi', $this->pagination->create_links());
-		$this->template->build('news/category');
+        // Config Pagination
+        $config['base_url'] = base_url().'news/'. $type;
+        $config['total_rows'] = $numberOfProduct;
+        $config['per_page'] = $perpage;
+        $config['uri_segment'] = 3;
+        $config['suffix'] = '.html';
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['cur_tag_open'] = '<li class="active"><a href="javascript:void(0)">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+
+        $this->pagination->initialize($config);
+
+        //Fetch all product by cate slug
+        $this->db->order_by('id', 'desc');
+        $promotions = $this->db->get_where('resource', array('content_type' => $type, 'published' => 1), $perpage, $offset)->result();
+
+        switch ($type) {
+        	case 'job':
+        		$typeText = 'Tin khuyến mãi';
+        		break;
+        	
+        	case 'distributary':
+        		$typeText = 'Phân phối';
+        		break;
+
+        	case 'culinary':
+        		$typeText = 'Góc ẩm thực';
+        		break;
+        }
+
+        $breadcrumb = array(
+            'Trang chủ'	=> '/',
+            $typeText	=> '',
+
+        );
+
+        $seo = array(
+            'seo_keyword'	=> $typeText,
+            'seo_description'	=> $typeText,
+            'seo_image'	=>  base_url().'assets/front/images/logo.png'
+        );
+        $this->load->vars($seo);
+
+        $this->template->title($typeText);
+        $this->template->set(array('promotions' => $promotions, 's_lang' => $this->s_lang, 'breadcrumb' => $breadcrumb));
+        $this->template->build('news/index');
 	}
 
 }

@@ -61,9 +61,14 @@ class Manager extends Admin_Controller {
 				break;
 
 			case 'job':
-				$s_title = 'Tuyển dụng';
+				$s_title = 'Tin khuyến mãi';
 				$return_url = ADMIN_URL.'resource/index/?contentType=job';
 				$linkAdd = ADMIN_URL.'resource/create/?contentType=job';
+				break;
+			case 'culinary':
+				$s_title = 'Góc Ẩm Thực';
+				$return_url = ADMIN_URL.'resource/index/?contentType=culinary';
+				$linkAdd = ADMIN_URL.'resource/create/?contentType=culinary';
 				break;
 
 			case 'guide':

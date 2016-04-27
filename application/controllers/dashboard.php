@@ -35,7 +35,7 @@ class Dashboard extends Admin_Controller {
 				'phone'				=> $this->input->post('phone'),
 				'seo_k_home'	=> $this->input->post('seo_k_home'),
 				'seo_desc_home'				=> $this->input->post('seo_desc_home'),
-				//'video_td'			=> $this->input->post('video_td'),
+				'logo'			=> $this->input->post('logo'),
 				'company_name'			=> $this->input->post('company_name'),
 				'fax'			=> $this->input->post('fax'),
 				'hotline'			=> $this->input->post('hotline'),

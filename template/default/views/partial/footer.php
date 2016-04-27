@@ -63,12 +63,12 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('.nickchat a').click(function(){
+		/*$('.nickchat a').click(function(){
 			var rel = $(this).attr('rel');
 			var content = $('#' + rel).html();
 			$('#modal_yahoo .modal-content').html(content);
 			$('#modal_yahoo').modal('show');
-		});
+		});*/
 
 	});
 </script>

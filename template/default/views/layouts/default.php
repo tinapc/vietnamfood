@@ -70,7 +70,7 @@
 				<div class="row">
 					<div class="col-sm-5 col-md-5">
 						<a class="logo" href="/">
-							<img src="<?=base_url()?>assets/front/images/logo.png" alt="">
+							<img src="<?=cover_image_path($this->load->get_var('logo'))?>" alt="" style="max-width: 112px; max-height: 110px">
 							<span class="comp-name"><?=$this->load->get_var('company_name')?></span>
 						</a>
 					</div>
@@ -115,9 +115,9 @@
 									          	</ul>
 									          	<?php endif ?>
 									        </li>
-									        <li><a href="<?php echo site_url('promotion-list')?>"><?=$this->lang->line('nav_km')?></a></li>
-									        <li><a href="<?php echo site_url('distributary')?>"><?=$this->lang->line('nav_distributary')?></a></li>
-									        <li><a href="<?php echo site_url('quality')?>"><?=$this->lang->line('nav_quality')?></a></li>
+									        <li><a href="<?php echo site_url('news/job')?>"><?=$this->lang->line('nav_km')?></a></li>
+									        <li><a href="<?php echo site_url('news/distributary')?>"><?=$this->lang->line('nav_distributary')?></a></li>
+									        <li><a href="<?php echo site_url('news/culinary')?>"><?=$this->lang->line('nav_quality')?></a></li>
 									        <li><a href="<?php echo site_url('contact')?>"><?=$this->lang->line('nav_lh')?></a></li>
 								      	</ul>
 								    </div><!-- /.navbar-collapse -->
